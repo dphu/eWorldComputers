@@ -1,0 +1,56 @@
+RewriteEngine On
+Options +FollowSymlinks
+#product
+RewriteRule ^change-products index.php?module=thietbi-product
+#categories
+RewriteRule ^changecategory.html index.php?module=thietbi-pro-cat
+#root category
+RewriteRule ^products/(.*) index.php?module=thietbi-product&function=edit&id=$1
+RewriteRule ^furnituregallery/rootcategory/(.*) index.php?module=furnituregallery&function=viewbyroot&id=$1
+RewriteRule ^by/(.*) index.php?module=furnituregallery&function=viewbyrootvirtual&virtualurl=by/$1
+#category
+RewriteRule ^furnituregallery/category/(.*) index.php?module=furnituregallery&function=viewbycategory&id=$1
+RewriteRule ^category/(.*) index.php?module=furnituregallery&function=viewbycategoryvirtual&virtualurl=category/$1
+#product
+RewriteRule ^furnituregallery/product/(.*) index.php?module=furnituregallery&function=viewproduct&id=$1
+RewriteRule ^product/(.*) index.php?module=furnituregallery&function=viewproductvirtual&virtualurl=product/$1
+#about html
+RewriteRule ^about/(.*) index.php?module=getblock&bid=___ADMIN_EDITOR___ABOUT
+#___ADMIN_EDITOR___ABOUT (index.php?module=getblock&bid=___ADMIN_EDITOR___ABOUT)
+RewriteRule ^ab index.php?module=getblock&bid=___ADMIN_EDITOR___ABOUT
+#product information html
+RewriteRule ^productinformation.html index.php?module=getblock&bid=___ADMIN_EDITOR___PRODUCT_INFORMATION
+#___ADMIN_EDITOR___PRODUCT_INFORMATION (index.php?module=getblock&bid=___ADMIN_EDITOR___PRODUCT_INFORMATION)
+RewriteRule ^product_information index.php?module=getblock&bid=___ADMIN_EDITOR___PRODUCT_INFORMATION
+#catalog request
+RewriteRule ^catalogrequest(.*) index.php?module=getblock&bid=___ADMIN_EDITOR___CATALOGREQUEST
+#___ADMIN_EDITOR___CATALOGREQUEST (index.php?module=getblock&bid=___ADMIN_EDITOR___CATALOGREQUEST)
+RewriteRule ^Catalog-Request-from-Newport-Cottages index.php?module=getblock&bid=___ADMIN_EDITOR___CATALOGREQUEST
+#privacy policy
+RewriteRule ^privacypolicy(.*) index.php?module=getblock&bid=___ADMIN_EDITOR___PRIVACYPOLICY&hiddenheader=1&hiddenfooter=1
+#___ADMIN_EDITOR___PRIVACYPOLICY (index.php?module=getblock&bid=___ADMIN_EDITOR___PRIVACYPOLICY&hiddenheader=1&hiddenfooter=1)
+#
+#press & news
+RewriteRule ^news.html index.php?module=pressandnews&function=view
+RewriteRule ^pressandnews/(.*) index.php?module=pressandnews&function=viewbyid&id=$1
+RewriteRule ^news/(.*) index.php?module=pressandnews&function=viewbyidvirtual&virtualurl=news/$1
+#___ADMIN_EDITOR___PRESSANDNEWS_MAINPAGE (index.php?module=pressandnews&function=view)
+RewriteRule ^press_news index.php?module=pressandnews&function=view
+#store catalor (dealer locator)
+RewriteRule ^storecatalor(.*) index.php?module=storecatalor&function=view
+#___ADMIN_EDITOR___STORELOCATOR (index.php?module=storecatalor&function=view)
+RewriteRule ^dealerlocator.html index.php?module=storecatalor&function=view
+#download
+RewriteRule ^download(.*) index.php?module=banggia&function=view
+#contact
+RewriteRule ^contact.html index.php?module=getblock&bid=___ADMIN_EDITOR___CONTACTUS
+#___ADMIN_EDITOR___CONTACTUS (index.php?module=getblock&bid=___ADMIN_EDITOR___CONTACTUS)
+#
+#product registration
+RewriteRule ^product_registration.html index.php?module=getblock&bid=___ADMIN_EDITOR___PRODUCTREGISTRATION&template=product_registration
+#___ADMIN_EDITOR___PRODUCTREGISTRATION (index.php?module=getblock&bid=___ADMIN_EDITOR___PRODUCTREGISTRATION&template=product_registration)
+#
+#joinmail
+RewriteRule ^joinmail.html index.php?module=getblock&bid=___ADMIN_EDITOR___JOINMAIL&template=joinmail&clear=email
+#___ADMIN_EDITOR___JOINMAIL (index.php?module=getblock&bid=___ADMIN_EDITOR___JOINMAIL&template=joinmail&clear=email)
+#

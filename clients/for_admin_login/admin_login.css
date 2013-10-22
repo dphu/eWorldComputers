@@ -1,0 +1,225 @@
+BODY1 {
+    FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+TD1 {
+    FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+FORM1 {
+    PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+TD1 {
+    PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+A1 {
+    COLOR: #ff6600; TEXT-DECORATION: none
+}
+A1:hover {
+    FONT-WEIGHT: normal; COLOR: #87b105; TEXT-DECORATION: underline
+}
+.background_black {
+    BACKGROUND-COLOR: #000033
+}
+SELECT {
+    BORDER-RIGHT: #f7f7f7 1px solid; BORDER-TOP: #f7f7f7 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #f7f7f7 1px solid; COLOR: #f87201; BORDER-BOTTOM: #f7f7f7 1px solid; BACKGROUND-COLOR: #e6e6e6
+}
+.top_title1 {
+    FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #074d91; FONT-FAMILY: Verdana, sans-serif
+}
+.top_title2 {
+    FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #5d5d5d; FONT-STYLE: italic; FONT-FAMILY: Verdana, sans-serif
+}
+.top_copyright {
+    PADDING-LEFT: 5pt; FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 2pt; COLOR: #b9b9b9; PADDING-TOP: 2pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.top_timer {
+    FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #87b105; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.top_account {
+    FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.top_account A:link {
+    FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.top_account A:visited {
+    FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.top_account A:hover {
+    FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #00ff66; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.top_admin_loged_1 {
+    FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.top_admin_loged_2 {
+    FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #33ffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.top_admin_spector {
+    FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #999900; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.top_bar {
+    BORDER-TOP: #2f2f2f 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; BORDER-BOTTOM: #2f2f2f 1px solid; FONT-FAMILY: Tahoma, Helvetica, sans-serif; HEIGHT: 25px; BACKGROUND-COLOR: #4d4d4d
+}
+.top_bar A {
+    FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Tahoma, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.top_bar A:hover {
+    FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #87b105; FONT-FAMILY: Tahoma, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.bottom_bar {
+    BORDER-TOP: #2f2f2f 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; BORDER-BOTTOM: #2f2f2f 1px solid; FONT-FAMILY: Tahoma, Helvetica, sans-serif; HEIGHT: 25px; BACKGROUND-COLOR: #4d4d4d
+}
+.leftmenu_title {
+    FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #33394d; FONT-FAMILY: Verdana, Helvetica, sans-serif
+}
+.leftmenu_category {
+    PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; COLOR: #ffffff; PADDING-TOP: 2px; FONT-FAMILY: Verdana, Helvetica, sans-serif; HEIGHT: 18px; BACKGROUND-COLOR: #87b105
+}
+.leftmenu_item {
+    PADDING-RIGHT: 4px; BORDER-TOP: #f7f7f7 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 11px; COLOR: #33394d; BORDER-BOTTOM: #cecece 1px solid; FONT-FAMILY: Verdana, Helvetica, sans-serif; WHITE-SPACE: nowrap; HEIGHT: 20px; BACKGROUND-COLOR: #f7f7f7
+}
+.leftmenu_hover {
+    PADDING-RIGHT: 4px; BORDER-TOP: #f7f7f7 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 11px; CURSOR: pointer; COLOR: #33394d; BORDER-BOTTOM: #87b105 1px solid; FONT-FAMILY: Verdana, Helvetica, sans-serif; HEIGHT: 20px; BACKGROUND-COLOR: #e6e6e6
+}
+.leftmenu_selected {
+    PADDING-RIGHT: 4px; BORDER-TOP: #f7f7f7 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 11px; CURSOR: pointer; COLOR: #f87201; BORDER-BOTTOM: #ff9c00 2px solid; FONT-FAMILY: Verdana, Helvetica, sans-serif; WHITE-SPACE: nowrap; HEIGHT: 20px; BACKGROUND-COLOR: #e6e6e6
+}
+.header_box {
+    PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; COLOR: #ffffff; PADDING-TOP: 2px; FONT-FAMILY: Tahoma, Helvetica, sans-serif; HEIGHT: 18px; BACKGROUND-COLOR: #4d4d4d
+}
+.header_box A {
+    COLOR: #ffffff; TEXT-DECORATION: none
+}
+.header_box A:hover {
+    FONT-WEIGHT: bold; COLOR: #87b105; TEXT-DECORATION: none
+}
+.footer {
+    PADDING-LEFT: 10px; FONT-SIZE: 11px; COLOR: #ffffff; HEIGHT: 25px; BACKGROUND-COLOR: #4d4d4d
+}
+.footer A {
+    COLOR: #ffffff; TEXT-DECORATION: none
+}
+.footer A:hover {
+    COLOR: #ff9900
+}
+.lnk_btn {
+    PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 3px; CURSOR: pointer; COLOR: #87b105; PADDING-TOP: 3px; FONT-FAMILY: Tahoma, Helvetica, sans-serif; HEIGHT: 18px
+}
+.lnk_btn_hover {
+    PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 3px; CURSOR: pointer; COLOR: #ff9c00; PADDING-TOP: 3px; FONT-FAMILY: Tahoma, Helvetica, sans-serif; HEIGHT: 18px; BACKGROUND-COLOR: #f7f7f7
+}
+.lnk_mnu A:link {
+    PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 3px; CURSOR: pointer; COLOR: #87b105; PADDING-TOP: 3px; FONT-FAMILY: Tahoma, Helvetica, sans-serif; HEIGHT: 18px; TEXT-DECORATION: none
+}
+.lnk_mnu A:visited {
+    PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 3px; CURSOR: pointer; COLOR: #87b105; PADDING-TOP: 3px; FONT-FAMILY: Tahoma, Helvetica, sans-serif; HEIGHT: 18px; TEXT-DECORATION: none
+}
+.lnk_mnu A:hover {
+    PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 3px; CURSOR: pointer; COLOR: #ff9c00; PADDING-TOP: 3px; FONT-FAMILY: Tahoma, Helvetica, sans-serif; HEIGHT: 18px; BACKGROUND-COLOR: #f7f7f7; TEXT-DECORATION: none
+}
+.categorytitle A {
+    COLOR: #ff6600; TEXT-DECORATION: none
+}
+.categorytitle A:hover {
+    FONT-WEIGHT: normal; COLOR: #87b105; TEXT-DECORATION: underline
+}
+.layer TD {
+    PADDING-RIGHT: 4px; PADDING-LEFT: 4px; BACKGROUND: #ffffff; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+.layerhover TD {
+    PADDING-RIGHT: 4px; PADDING-LEFT: 4px; BACKGROUND: #f7f7f7; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+.pgnum {
+    BORDER-RIGHT: #67b0d6 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #67b0d6 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 10px; PADDING-BOTTOM: 2px; BORDER-LEFT: #67b0d6 1px solid; WIDTH: 10px; CURSOR: pointer; COLOR: #8a8a8a; PADDING-TOP: 2px; BORDER-BOTTOM: #67b0d6 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; WHITE-SPACE: nowrap; HEIGHT: 100%; BACKGROUND-COLOR: #fff; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+A.pgnum {
+    COLOR: #8a8a8a; TEXT-DECORATION: none
+}
+A.pgnum:hover {
+    COLOR: #8a8a8a; BACKGROUND-COLOR: #f4f4f4; TEXT-DECORATION: none
+}
+.pncr {
+    BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 10px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccc 1px solid; WIDTH: 10px; CURSOR: pointer; COLOR: #555; PADDING-TOP: 2px; BORDER-BOTTOM: #ccc 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; WHITE-SPACE: nowrap; HEIGHT: 100%; BACKGROUND-COLOR: #f4f4f4; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.errorMsg {
+    FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #ff0000; FONT-STYLE: normal; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-VARIANT: normal
+}
+.tbl_header TD {
+    PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BORDER-BOTTOM: #cccccc 1px solid
+}
+.form_inside_left {
+    PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; FONT-STYLE: normal; FONT-FAMILY: verdana; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+.form_inside_right {
+    PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+.form_inside_right A {
+    FONT-WEIGHT: normal
+}
+.input {
+    BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; WIDTH: 70%; BORDER-BOTTOM: #cccccc 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #dbdbdb
+}
+.input:unknown {
+    BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-BOTTOM: #cccccc 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #eeeeee
+}
+.leftmenu_item {
+    PADDING-RIGHT: 4px; BORDER-TOP: #f7f7f7 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 11px; COLOR: #33394d; BORDER-BOTTOM: #cecece 1px solid; FONT-FAMILY: Verdana, Helvetica, sans-serif; WHITE-SPACE: nowrap; HEIGHT: 20px; BACKGROUND-COLOR: #f7f7f7
+}
+.leftmenu_hover {
+    PADDING-RIGHT: 4px; BORDER-TOP: #f7f7f7 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 11px; CURSOR: pointer; COLOR: #33394d; BORDER-BOTTOM: #87b105 1px solid; FONT-FAMILY: Verdana, Helvetica, sans-serif; HEIGHT: 20px; BACKGROUND-COLOR: #e6e6e6
+}
+.leftmenu_selected {
+    PADDING-RIGHT: 4px; BORDER-TOP: #f7f7f7 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 11px; CURSOR: pointer; COLOR: #f87201; BORDER-BOTTOM: #ff9c00 2px solid; FONT-FAMILY: Verdana, Helvetica, sans-serif; WHITE-SPACE: nowrap; HEIGHT: 20px; BACKGROUND-COLOR: #e6e6e6
+}
+.view_general {
+    PADDING-RIGHT: 5pt; PADDING-LEFT: 5pt
+}
+.text_view_1 {
+    FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.text_view_1 A:link {
+    FONT-SIZE: 12px; COLOR: #cc6633; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.text_view_1 A:visited {
+    FONT-SIZE: 12px; COLOR: #cc6633; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.text_view_1 A:hover {
+    FONT-SIZE: 12px; COLOR: #00cc99; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+.list_bg {
+    WHITE-SPACE: nowrap; BACKGROUND-COLOR: #ffffff
+}
+.list_bg_hover {
+    WHITE-SPACE: nowrap; BACKGROUND-COLOR: #f7f7f7
+}
+.alik {
+    FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #999900; FONT-STYLE: normal; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.alik A:link {
+    FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #999900; FONT-STYLE: normal; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.alik A:visited {
+    FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #999900; FONT-STYLE: normal; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.alik A:hover {
+    FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #999900; FONT-STYLE: normal; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+.page {
+    FONT-SIZE: 10px; COLOR: #333333; FONT-FAMILY: verdana; TEXT-DECORATION: none
+}
+.page A:link {
+    FONT-SIZE: 10px; COLOR: #333333; FONT-FAMILY: verdana; TEXT-DECORATION: none
+}
+.page A:visited {
+    FONT-SIZE: 10px; COLOR: #333333; FONT-FAMILY: verdana; TEXT-DECORATION: none
+}
+.page A:hover {
+    FONT-SIZE: 10px; COLOR: #b4340d; FONT-FAMILY: verdana; TEXT-DECORATION: none
+}
+.page_current {
+    FONT-SIZE: 10px; COLOR: #b4340d; FONT-FAMILY: verdana; TEXT-DECORATION: none
+}
+.field {
+    FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-STYLE: normal; FONT-FAMILY: verdana; TEXT-DECORATION: none
+}
+.preview {
+    FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-STYLE: normal; FONT-FAMILY: verdana; TEXT-DECORATION: none
+}

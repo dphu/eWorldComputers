@@ -1,0 +1,186 @@
+<html>
+    <head>
+        <link href="browser.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="../../../../MaiNgocMySetting_May052009.js"></script>
+        <script type="text/javascript">
+            function OpenFile( fileUrl )
+            {
+                window.top.opener.SetUrl( encodeURI( fileUrl ) ) ;
+                window.top.close() ;
+                window.top.opener.focus() ;
+            }
+            function __getListInfo()
+            {
+                document.getElementById('list').innerHTML = '';
+                document.getElementById('loading').style.display = '';
+                var e = window.ActiveXObject ? new ActiveXObject("Microsoft.XMLHTTP") : new XMLHttpRequest();
+                if (e) 
+                {
+                    e.onreadystatechange = function()
+                    {
+                        if (e.readyState == 4 && e.status == 200) 
+                        {
+                            if (e.responseText == 'Invalid')
+                            {
+                                alert(e.responseText);
+                                return;
+                            }
+                            if ((oConnector.ResourceType == 'Image') || ((oConnector.ResourceType == 'File')))
+                            {
+                                __showListInfoImage(e.responseText);
+                            }
+                            else
+                            {
+                                __showListInfoFlash(e.responseText);
+                            }
+                        }
+                    }
+                    e.open("POST", '../../../../../../../admin/admingetfilelistattachmentimage.php', true);
+                    e.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                    e.send('type='+oConnector.ResourceType);
+                }
+            }
+            function __showListInfoImage(result)
+            {
+                var list = new Array();
+                list = result.split(String.fromCharCode(10));
+		
+                result = null;
+				
+                var itemsCount = list.length;
+                var columns = 5;
+                var le = (itemsCount % columns) ? 1 : 0;
+                var rows = parseInt(itemsCount / columns) + le;
+                var o = document.getElementById('list');
+                var i = 0;
+                var tdWidth = parseInt(100 / columns) + '%';
+		
+                var td, name, dimension, style, src, column, row, HTML;
+		
+                HTML = '<table width="100%" border="0" cellspacing="0" cellpadding="0">';
+		
+                for (row=0; row < rows; row++)
+                {
+                    HTML += '<tr>';
+                    for (column=0; column < columns; column++)
+                    {
+                        td = '&nbsp;';
+                        if (i < itemsCount)
+                        {
+                            var a = new Array();
+                            a = list[i].split(String.fromCharCode(13)); 
+                            list[i] = null;
+                            name = a[0];
+                            dimension = a[1];
+                            style = a[2];
+                            a = null;
+                            src = MYSITEROOT+'attachment/image/'+name;
+                            td = '<img title="'+name+'" src="'+src+'" onClick="javascript:OpenFile(\''+src+'\');" onMouseOver="this.style.border=\'#0000CC solid 2px\'" onMouseOut="this.style.border=\'#FFFFFF solid 2px\'" style="cursor:pointer; border: #FFFFFF solid 2px; '+style+';" /><br>('+dimension+')<br><a href="javascript:void(0);" onclick="javascript:deletefile(\''+name+'\', \'td_'+i+'\');">delete</a><br>&nbsp;';
+                        }
+                        HTML += '<td id="td_'+i+'" width="'+tdWidth+'" height="120" align="center" valign="bottom">' + td +'</td>';
+                        i++;
+                    }
+                    HTML += '</tr>';
+                }
+		
+                HTML += '</table>';
+		
+                list = null;
+		
+                o.innerHTML = HTML;
+		
+                document.getElementById('loading').style.display = 'none';
+            }
+	
+            function __showListInfoFlash(result)
+            {
+                var list = new Array();
+                list = result.split(String.fromCharCode(10));
+		
+                result = null;
+				
+                var itemsCount = list.length;
+                var columns = 5;
+                var le = (itemsCount % columns) ? 1 : 0;
+                var rows = parseInt(itemsCount / columns) + le;
+                var o = document.getElementById('list');
+                var i = 0;
+                var tdWidth = parseInt(100 / columns) + '%';
+		
+                var td, name, dimension, style, src, column, row, HTML;
+		
+                HTML = '<table width="100%" border="0" cellspacing="0" cellpadding="0">';
+		
+                for (row=0; row < rows; row++)
+                {
+                    HTML += '<tr>';
+                    for (column=0; column < columns; column++)
+                    {
+                        td = '&nbsp;';
+                        if (i < itemsCount)
+                        {
+                            var a = new Array();
+                            a = list[i].split(String.fromCharCode(13)); 
+                            list[i] = null;
+                            name = a[0];
+                            dimension = a[1];
+                            sizeondisplay = a[2];
+                            a = null;
+                            src = MYSITEROOT+'attachment/image/'+name;
+					
+                            var linkDelete = '<a href="javascript:void(0);" onclick="javascript:deletefile(\''+name+'\', \'td_'+i+'\');">delete</a>';
+                            var linkView = '<a href="'+MYSITEROOT+'viewflash.php?file='+name+'" target="_blank">view</a>';
+                            var linkSelect = '<a href="javascript:OpenFile(\''+src+'\');">select</a>';
+                            td = '<embed '+sizeondisplay+' type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" src="'+src+'" play="true" loop="true" menu="true"></embed><br>('+dimension+')<br>'+linkDelete+'&nbsp;|&nbsp;'+linkView+'&nbsp;|&nbsp;'+linkSelect+'<br>&nbsp;';
+                        }
+                        HTML += '<td id="td_'+i+'" width="'+tdWidth+'" height="180" align="center" valign="bottom">' + td +'</td>';
+                        i++;
+                    }
+                    HTML += '</tr>';
+                }
+		
+                HTML += '</table>';
+		
+                list = null;
+		
+                o.innerHTML = HTML;
+		
+                document.getElementById('loading').style.display = 'none';
+            }
+	
+            function deletefile(name, td)
+            {
+                if (!confirm('Delete this file ?')) return;
+		
+                document.getElementById(td).style.verticalAlign = 'middle';
+                document.getElementById(td).innerHTML = '<img src="images/loading.gif" /><br>deleting...';
+		
+                var e = window.ActiveXObject ? new ActiveXObject("Microsoft.XMLHTTP") : new XMLHttpRequest();
+                if (e) 
+                {
+                    e.onreadystatechange = function()
+                    {
+                        if (e.readyState == 4 && e.status == 200) 
+                        {
+                            if (e.responseText == 'OK')
+                            {
+                                document.getElementById(td).innerHTML = '&nbsp;';
+                            }
+                        }
+                    }
+                    e.open("POST", '../../../../../../../admin/admingetfilelistattachmentimage.php', true);
+                    e.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                    e.send('delete='+name);
+                }	
+            }
+        </script>
+
+    </head>
+
+    <body class="FileArea" bottommargin="10" leftmargin="10" topmargin="10" rightmargin="10">
+        <div style="display:none;" id="loading"><img src="images/loading.gif" /><br>Loading...</div>
+        <div style="width:100%; display:table;" id="list"></div>
+    </body>
+</html>
+<script language="javascript" type="text/javascript">__getListInfo();</script>

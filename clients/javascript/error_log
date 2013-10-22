@@ -1,0 +1,8 @@
+[08-May-2009 00:01:08] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home2/wtwodhos/public_html/zoomifeye/npc/clients/javascript/index.php on line 1
+[08-May-2009 00:01:41] PHP Warning:  require_once(config/db.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home2/wtwodhos/public_html/zoomifeye/npc/clients/javascript/cs.php on line 6
+[08-May-2009 00:01:41] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required 'config/db.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home2/wtwodhos/public_html/zoomifeye/npc/clients/javascript/cs.php on line 6
+[08-May-2009 00:01:42] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home2/wtwodhos/public_html/zoomifeye/npc/clients/javascript/index.php on line 1
+[08-May-2009 00:03:19] PHP Warning:  require_once(config/db.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home2/wtwodhos/public_html/zoomifeye/npc/clients/javascript/cs.php on line 6
+[08-May-2009 00:03:19] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required 'config/db.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home2/wtwodhos/public_html/zoomifeye/npc/clients/javascript/cs.php on line 6
+[08-May-2009 00:05:44] PHP Fatal error:  Call to undefined function  phpinfor() in /home2/wtwodhos/public_html/zoomifeye/npc/clients/javascript/phpinfo.php on line 2
+[08-May-2009 00:05:58] PHP Fatal error:  Call to undefined function  phpinfor() in /home2/wtwodhos/public_html/zoomifeye/npc/clients/javascript/phpinfo.php on line 2

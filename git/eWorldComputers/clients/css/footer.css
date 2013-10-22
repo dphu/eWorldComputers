@@ -1,0 +1,22 @@
+/* CSS Document */
+.text-footer{
+    font-family:Verdana;
+    font-size:10px;
+    color:#ffffff;
+    text-decoration:none;
+}
+.text-footer a:link, .text-footer a:visited{
+    color:#ffffff;
+    text-decoration:none;
+}
+.text-footer a:hover{
+    color:#99CC00;
+}
+.menu-cat-r{
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size:15px;
+    color:#FFFFFF;
+    text-align:center;
+    height: 36px;
+}

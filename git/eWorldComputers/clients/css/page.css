@@ -1,0 +1,25 @@
+/* CSS Document */
+.page_cur{
+    font-family:Verdana;
+    font-size:10px;
+    color:#176D00;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+}
+.page, .page a:link, .page a:visited{
+    font-family:Verdana;
+    font-size:10px;
+    color:#000000;
+    font-style:normal;
+    font-weight:lighter;
+    text-decoration:none;
+}
+.page a:hover{
+    font-family:Verdana;
+    font-size:10px;
+    color:#000000;
+    font-style:normal;
+    text-decoration:none;
+}
+

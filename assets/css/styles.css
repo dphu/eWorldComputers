@@ -12,7 +12,6 @@
 
 .social, .block.block-subscribe {
     text-align:center;
-    clear:both;
 }
 
 .four:not(.logo):not(.sidebar), table, .category-nav, footer, .twelve:not(.quick-access):not(.cart) {
@@ -449,7 +448,7 @@ body {
     background:#000;
     border:5px solid #eaeaea;
     box-shadow:1px 1px 5px rgba(0,0,0,0.7);
-    width:718px;
+    width:706px;
     overflow:visible;
     position:relative;
 }
@@ -670,20 +669,12 @@ div.actions {
 /*Footer							 */
 /*************************************/
 footer {
-    float:right;
-    margin: 0 auto;
     margin-top: 20px;
-    border: 1px outset #D7CECA;
-    padding: 7px 0;
-    width: 70%;
-    text-align: center;
-    /*margin-right: 18px;*/
 }
 
 footer .column {
     text-align: left;
-    float: left;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 footer .column > ul {

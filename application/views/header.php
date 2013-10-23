@@ -24,7 +24,7 @@
                 <div class="logo four columns">
                     <h1>
                         <a href="<?php echo base_url(); ?>">
-                            <img src="<?php echo base_url(); ?>assets/images/eworldbanner.jpg" alt="e-World Computers' Banner" title="Goto e-World Computers' Home Page">
+                            <img src="<?php echo base_url(); ?>assets/images/eworldbanner.jpg" alt="e-World Computers' Banner" title="Goto e-World Computers' Home Page" />
                         </a>
                     </h1>
                 </div>

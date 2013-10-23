@@ -1,1 +1,0 @@
-<?phpif (!defined('IN_SYSTEM')) {    $f = 'die.php';    while (!file_exists($f) || !is_file($f))        $f = '../' . $f;die(header('Location: ' . $f));};define('UPLOAD_ICONS_LANG_PATH', realpath(dirname(__FILE__) . '/../upload/lang/'));define('sBasePath', '../clients/javascript/fckeditor/');?>

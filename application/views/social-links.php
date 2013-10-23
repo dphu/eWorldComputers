@@ -7,7 +7,7 @@
         </li>
         <li>
             <a href="https://plus.google.com/u/0/106849492624547638682" target="_blank">
-                <img src="<?php echo base_url() . 'assets/images/twitter-link.jpg'; ?>" title="Twitter" alt="Twitter" />
+                <img src="<?php echo base_url() . 'assets/images/twitter_link.jpg'; ?>" title="Twitter" alt="Twitter" />
             </a>
         </li>
     </ul>

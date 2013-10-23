@@ -9,7 +9,8 @@
         <meta name="keywords" content="later" />
         <meta name="description" content="later."/>
         <link href="<?php echo base_url(); ?>assets/css/styles.css" rel="stylesheet" title="Main Layout" type="text/css" media="all" />
-
+        <link href="<?php echo base_url(); ?>assets/css/flexslider.css" rel="stylesheet" title="Main Layout" type="text/css" media="all" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.flexslider.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.flexslider-min.js"></script>

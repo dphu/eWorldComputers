@@ -1,7 +1,7 @@
 
 <section class="mainContent">
     <h3>Edit Profile<span>[All fields are required]</span></h3>
-    <form id="edit-account" method="post" action ="<?php echo base_url(); ?>main/validateEditProfile">
+    <form class="contact_form" method="post" action ="<?php echo base_url(); ?>main/validateEditProfile">
         <fieldset>
             <legend>Basic Information</legend>
             <ul>

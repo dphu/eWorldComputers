@@ -10,7 +10,7 @@ if (empty($var)):
             <p>
                 Your shopping cart is empty...<img src="<?php echo base_url() . 'assets/images/cry.ico'; ?>" alt="Crying" title="Crying"/>
             </p>
-            <form action="<?php echo empty($_SESSION['page']) ? base_url() : $_SESSION['page']; ?>">
+            <form action="<?php echo empty($_SESSION['page']) || $_SESSION['page'] == base_url().'main/shopping-cart' ? base_url() : $_SESSION['page']; ?>">
                 <input type="submit" value="Continue Shopping"/>
             </form>
         <?php else: ?>
@@ -52,7 +52,7 @@ if (empty($var)):
                                 </td>
                                 <td><?php echo '$' . number_format($item['price'], 2, '.', ','); ?></td>
                                 <td>
-                                    <input type="number" min="0" max="999" size="3" maxlength="3" name="item[]" value="<?php echo $item['qty']; ?>"/>
+                                    <input type="number" min="0" max="999" size="3" maxlength="3" name="item[<?php echo $item['rowid'];?>]" value="<?php echo $item['qty']; ?>"/>
                                 </td>
                                 <td><?php echo '$' . number_format($item['subtotal'], 2, '.', ','); ?></td>
                             </tr>

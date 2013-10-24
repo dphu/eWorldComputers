@@ -50,14 +50,15 @@ class GetDB extends CI_Model {
     }
 
     public function insertValues($table, $fields, $values) {
+        $_SESSION['test'] = $values;
         $query = mysql_query("INSERT INTO $table ($fields) VALUES ($values)");
         return mysql_insert_id();
     }
 
     //check to see if email exists in database for a user
-    public function doesEmailExist() {
+    public function doesEmailExist($table) {
         $email = $this->input->post('email');
-        $query = $this->db->query("SELECT * FROM customer WHERE email = '$email'");
+        $query = $this->db->query("SELECT * FROM $table WHERE email = '$email'");
         if ($query->num_rows() == 1) {
             return true;
         }

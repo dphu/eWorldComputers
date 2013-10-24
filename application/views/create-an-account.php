@@ -1,6 +1,6 @@
 <div class="createarea four eight columns">
     <h3>Create Account</h3>
-    <form id="create-account" method="post" action ="<?php echo base_url(); ?>main/validateCreateAccount">
+    <form class="contact_form" method="post" action ="<?php echo base_url(); ?>main/validateCreateAccount">
         <fieldset>
             <ul>
                 <li>

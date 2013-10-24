@@ -318,8 +318,8 @@ class Main extends CI_Controller {
     public function validateCreateAccount() {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('email', 'email', 'required|trim|xss_clean|max_length[100]|callback_verifyAvailable');
-        $this->form_validation->set_rules('password', 'password', 'required|trim|sha1|xss_clean');
+        $this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|xss_clean|max_length[100]|callback_verifyAvailable[' . "customer" . ']');
+        $this->form_validation->set_rules('password', 'password', 'required|trim|matches[confirm-password]|sha1|xss_clean');
         $this->form_validation->set_rules('confirm-password', 'confirm-password', 'required|trim|sha1|xss_clean|callback_confirmPassword');
 
         if ($this->form_validation->run()) {
@@ -341,12 +341,13 @@ class Main extends CI_Controller {
     }
 
     //make sure email doesn't exist in database
-    public function verifyAvailable() {
+    public function verifyAvailable($value, $table) {
         $this->load->model('getdb');
-        if (!($this->getdb->doesEmailExist())) {
+        if (!($this->getdb->doesEmailExist($table))) {
             return true;
         } else {
             $this->form_validation->set_message('verifyAvailable', 'Email already in use');
+            $_SESSION['test'] = $this->form_validation->verifyAvailable;
             return false;
         }
     }
@@ -495,13 +496,18 @@ class Main extends CI_Controller {
         $this->shopping_cart();
     }
 
-    public function update_cart($rowid, $qty = null) {
-        $data = array(
-            'rowid' => $rowid,
-            'qty' => $qty
-        );
-
-        echo $this->cart->update($data);
+    public function update_cart() {
+        print_r($this->input->post('item'));
+        $data = array();
+        foreach($this->input->post('item') as $rowid=>$qty)
+        {
+            $data[] = array(
+                'rowid' => $rowid,
+                'qty' => $qty
+            );
+        }
+        
+        $_SESSION['product_name'] = $this->cart->update($data) ? 'You shopping cart has been updated.' : 'Uhm...you didn\'t make any changes!';
         redirect('main/shopping-cart');
     }
 
@@ -529,6 +535,21 @@ class Main extends CI_Controller {
         $this->load->view('copyright');
     }
 
+    public function subscribe() {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('email', 'email', 'required|trim|xss_clean|valid_email|max_length[100]|callback_verifyAvailable[' . "tbl_newsletter" . ']');
+        
+        if ($this->form_validation->run()) {
+            $this->load->model('getdb');
+            $this->getdb->insertValues('tbl_newsletter', 'email', "'".$this->input->post('email')."'");
+            $_SESSION['test'] = "You have successfully subscribed!";
+            redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            $_SESSION['test']="Invalid Email or Email already exists.";
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+    
     function destroy() {
         $this->cart->destroy();
     }

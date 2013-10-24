@@ -3,7 +3,7 @@
         <ul>
             <li>OUR COMPANY
                 <ul>
-                    <li><a href="<?php echo base_url(); ?>main/home">OUR STORY</a></li>
+                    <li><a href="<?php echo base_url(); ?>main/about-us">OUR STORY</a></li>
                     <li><a href="<?php echo base_url(); ?>main/contact-us">CONTACT US</a></li>
                     <li><a href="<?php echo base_url(); ?>main/our-guarantee">OUR GUARANTEE</a></li>
                     <li><a href="<?php echo base_url(); ?>main/press-news">PRESS &amp; NEWS</a></li>

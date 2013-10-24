@@ -29,6 +29,22 @@
                 </ul>
             </li>
 
+            
+            <li><span>Services</span>
+                <ul>
+                    <?php foreach ($categories as $item): ?>
+                        <?php if ($item['parent_id'] == 87) : ?>
+                            <li>
+                                <a href="<?php echo base_url(); ?>main/products/<?php echo $item['id']; ?>">
+                                    <?php echo ucwords($item['name_en']); ?>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ul>
+            </li>
+            
+            
             <li><span>Services</span>
                 <ul>
                     <li>

@@ -239,7 +239,7 @@ class Main extends CI_Controller {
             $data['userInfo'] = $this->getdb->getUserData($_SESSION['userID']);
             $this->load->view("logged-in", $data);
         } else {
-            $this->load->view("logged-out");
+            $this->load->view("logged-in");
         }
     }
 

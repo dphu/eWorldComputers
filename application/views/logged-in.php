@@ -1,9 +1,9 @@
 <div class="quick-access twelve columns">
     <div class="login">
         <ul>
-            <li>Welcome
+            <li>
                 <?php if (!empty($_SESSION['userID'])): ?>
-                    <a href="<?php echo base_url(); ?>main/my-account"><?php echo (empty($userInfo->fname) && empty($userInfo->lname)) ? 'User' : $userInfo->fname . " " . $userInfo->lname ?></a>
+                    Welcome <a href="<?php echo base_url(); ?>main/my-account"><?php echo (empty($userInfo->fname) && empty($userInfo->lname)) ? 'User' : $userInfo->fname . " " . $userInfo->lname ?></a>
                 <?php else: ?>
                     <a href="<?php echo base_url(); ?>main/my-account">My Account</a>
                 <?php endif ?>

@@ -42,14 +42,14 @@ class Main extends CI_Controller {
         $this->login();
         $this->load->view('global-search');
         $this->global_navigation();
-        
-        if(!empty($_SESSION['userID']))
+
+        if (!empty($_SESSION['userID']))
             $this->load->view('my-account');
         else {
             $this->load->view('customer-login');
             $this->load->view('create-an-account');
         }
-        
+
         $this->load->view('copyright');
     }
 
@@ -499,14 +499,13 @@ class Main extends CI_Controller {
     public function update_cart() {
         print_r($this->input->post('item'));
         $data = array();
-        foreach($this->input->post('item') as $rowid=>$qty)
-        {
+        foreach ($this->input->post('item') as $rowid => $qty) {
             $data[] = array(
                 'rowid' => $rowid,
                 'qty' => $qty
             );
         }
-        
+
         $_SESSION['product_name'] = $this->cart->update($data) ? 'You shopping cart has been updated.' : 'Uhm...you didn\'t make any changes!';
         redirect('main/shopping-cart');
     }
@@ -538,19 +537,90 @@ class Main extends CI_Controller {
     public function subscribe() {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('email', 'email', 'required|trim|xss_clean|valid_email|max_length[100]|callback_verifyAvailable[' . "tbl_newsletter" . ']');
-        
+
         if ($this->form_validation->run()) {
             $this->load->model('getdb');
-            $this->getdb->insertValues('tbl_newsletter', 'email', "'".$this->input->post('email')."'");
+            $this->getdb->insertValues('tbl_newsletter', 'email', "'" . $this->input->post('email') . "'");
             $_SESSION['test'] = "You have successfully subscribed!";
             redirect($_SERVER['HTTP_REFERER']);
         } else {
-            $_SESSION['test']="Invalid Email or Email already exists.";
+            $_SESSION['test'] = "Invalid Email or Email already exists.";
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
-    
-    function destroy() {
-        $this->cart->destroy();
+
+    public function service_status() {
+        $_SESSION['current_view'] = 'service status';
+        $this->load->model('getdb');
+
+        if (!empty($_SESSION['userID'])) {
+            $this->load->view('header');
+            $this->login();
+            $this->load->view('global-search');
+            $this->global_navigation();
+            $data['services'] = $this->getdb->getServicedItems($_SESSION['userID']);
+            $this->load->view('service-status', $data);
+        }
+        else
+            $this->my_account();
+
+        $this->load->view('copyright');
+    }
+
+    public function ajax_get_customers() {
+        //header('Content-type: text/plain');
+        $this->load->model('getdb');
+        $data['customer'] = $this->getdb->getCustomers();
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_encode($data['customer']));
+        //$this->output->set_output(json_encode($data));
+    }
+
+    public function ajax_get_services() {
+        //header('Content-type: text/plain');
+        $this->load->model('getdb');
+        $data['service'] = $this->getdb->getServiceStatus();
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_encode($data['service']));
+        //$this->output->set_output(json_encode($data));
+    }
+
+    public function ajax_add_service_item() {
+        //header('Content-type: text/plain');
+        $this->load->model('getdb');
+        $postedValue = $this->input->post();
+        $this->getdb->insertServiceItem($postedValue);
+        $this->output->set_output(json_encode($postedValue));
+        //$this->output->set_output(json_encode($data));
+    }
+
+    public function ajax_update_service_item() {
+        //header('Content-type: text/plain');
+        $this->load->model('getdb');
+        $postedValue = $this->input->post();
+        $this->getdb->updateServiceItem($postedValue);
+        $this->output->set_output(json_encode($postedValue));
+        //$this->output->set_output(json_encode($data));
+    }
+
+    public function ajax_remove_service_item() {
+        //header('Content-type: text/plain');
+        $this->load->model('getdb');
+        $postedValue = $this->input->post();
+        $this->getdb->removeServiceItem($postedValue);
+        $this->output->set_output(json_encode($postedValue));
+        //$this->output->set_output(json_encode($data));
+    }
+
+    public function admin_service_page() {
+        $this->load->model('getdb');
+        $data['customer'] = $this->getdb->getCustomers();
+        //$data['service'] = $this->getdb->getServiceStatus();
+        $this->load->view('header');
+        $this->login();
+        $this->load->view('global-search');
+        $this->global_navigation();
+        $this->load->view('admin-service-page', $data);
+        $this->load->view('copyright');
     }
 }

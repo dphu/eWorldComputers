@@ -14,7 +14,7 @@
     text-align:center;
 }
 
-.four:not(.logo):not(.sidebar), table, .category-nav, footer, .twelve:not(.quick-access):not(.cart) {
+#map_canvas,.four:not(.logo):not(.sidebar), table, .category-nav, footer, .twelve:not(.quick-access):not(.cart) {
     -moz-box-shadow: 0 0 10px 1px grey;
     -webkit-box-shadow: 0 0 10px 1px grey;
     box-shadow: 0 0 10px 1px grey;
@@ -693,7 +693,7 @@ footer .column > ul > li > ul a:hover {
     text-decoration: underline;
 }
 
-address {
+address#bottom {
     font-size: 80%;
     clear:both;
     color: #00772B;

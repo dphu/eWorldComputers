@@ -3,6 +3,7 @@
     <div id="loginarea">
         <ul>
             <li><input type="button" id="create" value="Edit Profile" onclick="location.href='<?php echo base_url(); ?>main/edit-profile'" /></li>
+            <li><input type="button" id="create" value="Service Status" onclick="location.href='<?php echo base_url(); ?>main/service-status'" /></li>
         </ul>
         <form id="logout-form" method="post" action="<?php echo base_url(); ?>main/logout">
             <ul>

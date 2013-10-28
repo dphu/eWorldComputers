@@ -121,38 +121,41 @@ class GetDB extends CI_Model {
         $query = $this->db->get_where('tbl_interface_manager', array('blockid' => $blockName));
         return $query->row_array();
     }
-    
-    
-        public function getServicedItems($uid) {
-        $query = $this->db->query("SELECT * FROM service_status WHERE cus_id = '".$uid."' AND odate = '0000-00-00'");
+
+    public function getServicedItems($uid) {
+        $query = $this->db->query("SELECT * FROM service_status WHERE cus_id = '" . $uid . "' AND odate = '0000-00-00'");
         return $query->result_array();
     }
+
     public function getCustomers() {
         $query = $this->db->query("SELECT * FROM customer ");
         return $query->result_array();
     }
+
     public function getServiceStatus() {
         $query = $this->db->query("SELECT * FROM service_status ");
         return $query->result_array();
     }
+
     public function insertServiceItem($item) {
-        $query = $this->db->query("INSERT INTO `service_status` (`id`, `cus_id`, `item`, `sertype`, `status`, `idate`, `odate`, `icondition`, `ocondition`) VALUES (NULL, '".$item['cus_id']."', '".$item['item']."', '".$item['sertype']."', '". $item['status']."', '".$item['idate']."', '0000-00-00', '".$item['icondition']."', '')");
-        
+        $query = $this->db->query("INSERT INTO `service_status` (`id`, `cus_id`, `item`, `sertype`, `status`, `idate`, `odate`, `icondition`, `ocondition`) VALUES (NULL, '" . $item['cus_id'] . "', '" . $item['item'] . "', '" . $item['sertype'] . "', '" . $item['status'] . "', '" . $item['idate'] . "', '0000-00-00', '" . $item['icondition'] . "', '')");
     }
+
     public function updateServiceItem($item) {
-        $id=$item['id'];
-        $query = $this->db->query("UPDATE service_status SET cus_id ='".$item['cus_id']."', item ='".$item['item']."', sertype ='".$item['sertype']."', status ='".$item['status']."',  idate ='".$item['idate']."',  odate ='".$item['odate']."',  icondition ='".$item['icondition']."',  ocondition ='".$item['ocondition']."' WHERE  service_status.id  =$id");
+        $id = $item['id'];
+        $query = $this->db->query("UPDATE service_status SET cus_id ='" . $item['cus_id'] . "', item ='" . $item['item'] . "', sertype ='" . $item['sertype'] . "', status ='" . $item['status'] . "',  idate ='" . $item['idate'] . "',  odate ='" . $item['odate'] . "',  icondition ='" . $item['icondition'] . "',  ocondition ='" . $item['ocondition'] . "' WHERE  service_status.id  =$id");
     }
+
     public function removeServiceItem($item) {
-        $id=$item['id'];
+        $id = $item['id'];
         $query = $this->db->query("DELETE FROM service_status WHERE id =$id LIMIT 1 ");
     }
-    
+
     public function getInvoices($userID) {
         $query = $this->db->query("SELECT * FROM tbl_invoice INNER JOIN customer ON customer_id = id WHERE customer_id = $userID");
         return $query->result_array();
     }
-    
+
     public function getInvoiceById($id) {
         $query = $this->db->query("SELECT * FROM tbl_invoice i INNER JOIN tbl_product_list l ON i.invoice_id = l.invoice_id INNER JOIN tbl_products p ON l.product_id = p.id WHERE i.invoice_id = $id");
         return $query->result_array();

@@ -623,31 +623,45 @@ class Main extends CI_Controller {
         $this->load->view('admin-service-page', $data);
         $this->load->view('copyright');
     }
-    
+
     public function invoice() {
-       $_SESSION['current_view'] = 'Invoice';
-       $this->load->view('header');
-       $this->login();
-       $this->load->view('global-search');
-       $this->global_navigation();
-       $this->categories_navigation();
-       $this->load->view('newsletter');
-       $this->load->view('social-links');
-       $this->load->model('getdb');
-       if(!empty($_SESSION['userID'])){
-           $data['invoices']=$this->getdb->getInvoices($_SESSION['userID']);
-       }
-       else{
-           $data['invoices']="";
-       }
-       $this->load->view('invoice', $data);
-       $this->load->view('footer');
-       $this->load->view('copyright');
-   }
-   public function invoice_focus($id) {
-       $this->load->model('getdb');
-       $data['invoice']=$this->getdb->getInvoiceById($id);
-       $data['customer']=$this->getdb->getUserData($_SESSION['userID']);
-       $this->load->view('invoice-focus', $data);
-   }
+        $this->createInvoice();
+        $_SESSION['current_view'] = 'Invoice';
+        $this->load->view('header');
+        $this->login();
+        $this->load->view('global-search');
+        $this->global_navigation();
+        $this->categories_navigation();
+        $this->load->view('newsletter');
+        $this->load->view('social-links');
+        $this->load->model('getdb');
+        if (!empty($_SESSION['userID'])) {
+            $data['invoices'] = $this->getdb->getInvoices($_SESSION['userID']);
+        } else {
+            $data['invoices'] = "";
+        }
+        $this->load->view('invoice', $data);
+        $this->load->view('footer');
+        $this->load->view('copyright');
+    }
+
+    public function invoice_focus($id) {
+        $this->load->model('getdb');
+        $data['invoice'] = $this->getdb->getInvoiceById($id);
+        $data['customer'] = $this->getdb->getUserData($_SESSION['userID']);
+        $this->load->view('invoice-focus', $data);
+    }
+
+    public function createInvoice() {
+        $this->load->model('getdb');
+        $id = $this->getdb->insertValues('tbl_invoice', "customer_id, date, time", "$_SESSION[userID], CURDATE(), CURTIME()");
+        foreach ($this->cart->contents() as $items) {
+            $this->getdb->insertValues('tbl_product_list', "customer_id, invoice_id, product_id, qty", "$_SESSION[userID], $id, $items[id], $items[qty]");
+        }
+        $this->destroy();
+    }
+
+    private function destroy() {
+        $this->cart->destroy();
+    }
 }

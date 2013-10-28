@@ -10,7 +10,7 @@ if (empty($var)):
             <p>
                 Your shopping cart is empty...<img src="<?php echo base_url() . 'assets/images/cry.ico'; ?>" alt="Crying" title="Crying"/>
             </p>
-            <form action="<?php echo empty($_SESSION['page']) || $_SESSION['page'] == base_url().'main/shopping-cart' ? base_url() : $_SESSION['page']; ?>">
+            <form action="<?php echo empty($_SESSION['page']) || $_SESSION['page'] == base_url() . 'main/shopping-cart' ? base_url() : $_SESSION['page']; ?>">
                 <input type="submit" value="Continue Shopping"/>
             </form>
         <?php else: ?>
@@ -32,7 +32,7 @@ if (empty($var)):
                     </thead>
                     <tfoot>
                         <tr>
-                            <td colspan="2"><a href="<?php echo empty($_SESSION['page']) || $_SESSION['page'] == base_url().'main/shopping-cart' ? base_url() : $_SESSION['page']; ?>">Continue Shopping</a></td>
+                            <td colspan="2"><a href="<?php echo empty($_SESSION['page']) || $_SESSION['page'] == base_url() . 'main/shopping-cart' ? base_url() : $_SESSION['page']; ?>">Continue Shopping</a></td>
                             <td colspan="4"><input type="submit" name="update_cart" value="Update Shopping Cart" /></td>
                         </tr>
                     </tfoot>
@@ -52,7 +52,7 @@ if (empty($var)):
                                 </td>
                                 <td><?php echo '$' . number_format($item['price'], 2, '.', ','); ?></td>
                                 <td>
-                                    <input type="number" min="0" max="999" size="3" maxlength="3" name="item[<?php echo $item['rowid'];?>]" value="<?php echo $item['qty']; ?>"/>
+                                    <input type="number" min="0" max="999" size="3" maxlength="3" name="item[<?php echo $item['rowid']; ?>]" value="<?php echo $item['qty']; ?>"/>
                                 </td>
                                 <td><?php echo '$' . number_format($item['subtotal'], 2, '.', ','); ?></td>
                             </tr>
@@ -61,38 +61,10 @@ if (empty($var)):
                 </table>
             </form>
             <?php $_SESSION['page'] = base_url() . 'main/shopping-cart' ?>
+                
+        <form method="post" action="<?php echo base_url() . 'main/invoice'; ?>">
+            <input type="submit" value="Proceed to Checkout" />
+        </form>
         <?php endif; ?>
-
-    </section>
-
-
-
-
-    <!--
-    
-    
-    <h3>My Shopping Cart</h3>
-    <?php foreach ($this->cart->contents() as $item): ?>
-                                    <article class="list-style twelve columns">
-                                        <p>
-                                            <img src="<?php echo base_url() . 'assets/images/' . $item['img'] ?>" alt="<?php echo $item['name'] ?>" title="<?php echo $item['name'] ?>"/>
-                                        </p>
-                                        <p><?php echo $item['name']; ?></p>
-                                        <p><?php echo 'Price: $' . number_format($item['price'], 2, '.', ',') ?></p>
-                                        <p>
-                                            <form method="post" action="<?php echo base_url(); ?>main/update-cart/">
-                                                <input type="number" min="0" max="999" name="qty" id="qty" value="<?php echo $item['qty'] ?>" maxlength="3" size="3" />
-                                                <input type="hidden" name="id" value="<?php echo $item['id'] ?>"/>
-                                                <input type="hidden" name="rowid" value="<?php echo $item['rowid'] ?>"/>
-                                                <input type="submit" title="Setting Quantity to 0 will Remove this Item!" name="update" id="submit" value="Update" />
-        <?php echo 'Subtotal: $' . number_format($item['subtotal'], 2, '.', ',') ?>
-                                            </form>
-                                        </p>
-    <?php endforeach; ?>
-            <input type="button" value="Checkout"/>
-    </article>
-    
-    -->
-
     </section>
 

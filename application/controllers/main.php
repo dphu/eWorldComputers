@@ -212,7 +212,7 @@ class Main extends CI_Controller {
     public function product_focus($productid = null) {
         $this->load->model('getdb');
         $data['product'] = $this->getdb->productbyid($productid);
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->login();
         $this->load->view('global-search');
         $this->global_navigation();
@@ -623,4 +623,31 @@ class Main extends CI_Controller {
         $this->load->view('admin-service-page', $data);
         $this->load->view('copyright');
     }
+    
+    public function invoice() {
+       $_SESSION['current_view'] = 'Invoice';
+       $this->load->view('header');
+       $this->login();
+       $this->load->view('global-search');
+       $this->global_navigation();
+       $this->categories_navigation();
+       $this->load->view('newsletter');
+       $this->load->view('social-links');
+       $this->load->model('getdb');
+       if(!empty($_SESSION['userID'])){
+           $data['invoices']=$this->getdb->getInvoices($_SESSION['userID']);
+       }
+       else{
+           $data['invoices']="";
+       }
+       $this->load->view('invoice', $data);
+       $this->load->view('footer');
+       $this->load->view('copyright');
+   }
+   public function invoice_focus($id) {
+       $this->load->model('getdb');
+       $data['invoice']=$this->getdb->getInvoiceById($id);
+       $data['customer']=$this->getdb->getUserData($_SESSION['userID']);
+       $this->load->view('invoice-focus', $data);
+   }
 }

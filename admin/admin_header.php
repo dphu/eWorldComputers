@@ -161,7 +161,7 @@ if(!defined('IN_SYSTEM')){$f='die.php';while(!file_exists($f)||!is_file($f))$f='
 			<td colspan="3" id="banner">
 				<table width="100%" border="0" cellspacing="8" cellpadding="0">
 					<tr>
-						<td height="*" align="center" valign="middle">&nbsp;</td>
+						<td height="*" align="center" valign="middle"><a href="index.php"><img src="logo/eworldbanner.jpg" width="260" height="75" alt="logo" /></a></td>
 						<td width="79%" align="center" class="top_title1">CONTENT MANAGEMENT SYSTEM</td>
 					</tr>
 				</table>

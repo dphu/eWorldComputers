@@ -96,7 +96,7 @@ class GetDB extends CI_Model {
     }
 
     public function productById($id) {
-        $query = $this->db->query("SELECT cat_id, id, name_en, price, image, desc_en, quantity FROM tbl_products WHERE id = $id");
+        $query = $this->db->query("SELECT cat_id, id, name_en, price, image, desc_en, quantity, pagetitle, metakeyword, metadescription FROM tbl_products WHERE id = $id");
         return $query->row_array();
     }
 
@@ -146,5 +146,15 @@ class GetDB extends CI_Model {
     public function removeServiceItem($item) {
         $id=$item['id'];
         $query = $this->db->query("DELETE FROM service_status WHERE id =$id LIMIT 1 ");
+    }
+    
+    public function getInvoices($userID) {
+        $query = $this->db->query("SELECT * FROM tbl_invoice INNER JOIN customer ON customer_id = id WHERE customer_id = $userID");
+        return $query->result_array();
+    }
+    
+    public function getInvoiceById($id) {
+        $query = $this->db->query("SELECT * FROM tbl_invoice i INNER JOIN tbl_product_list l ON i.invoice_id = l.invoice_id INNER JOIN tbl_products p ON l.product_id = p.id WHERE i.invoice_id = $id");
+        return $query->result_array();
     }
 }

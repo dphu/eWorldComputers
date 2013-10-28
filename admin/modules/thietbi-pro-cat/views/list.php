@@ -44,8 +44,6 @@
 			<?php for ($i=0; $i<count($this->keyLangList); $i++):?>
 				<th align="left" valign="middle" nowrap="nowrap"  style="font-size:11px;">Title</th>
 			    <?php endfor;?>
-			<th width="70" align="center" valign="middle" style="font-size:11px;">Products<br />
-	      Count </th>
 			<th width="60" align="center" valign="middle" nowrap="NOWRAP" style="font-size:11px;">Sort <img src="../clients/images/icons/filesave.png" alt="Cập nhật vị trí" width="16" height="16" style="cursor:pointer;" onclick="javascript:set_ordering();" /></th>
 			<th width="80" align="center" valign="middle" nowrap="nowrap" style="font-size:11px;">Display<img src="../clients/images/icons/filesave.png" alt="Cập nhật thuộc tính hiển thị" width="16" height="16" style="cursor:pointer;" onclick="javascript:set_display();" /></th>
 			<th width="90" align="center" valign="middle" nowrap="nowrap"  style="font-size:11px;">Default</th>
@@ -85,8 +83,6 @@
 					<td align="left" valign="middle" nowrap="nowrap" class="content-rows">
 						<a href="index.php?module=<?php echo PRO_CAT_MODULE_NAME;?>&function=edit&id=<?php echo $row->id?>" title="Click for edit" ><?php echo $row->{$this->field_NAME[$j]};?></a></td>
 				<?php endfor;?>
-				<td align="center" valign="middle" class="content-rows">&nbsp;
-					</td>
 				<td align="center" valign="middle" class="content-rows">
 					<?php $this->__auto_write_textbox_ordering($row->id, $row->ordering, 'size="2" maxlength="5" style="text-align:center; font-weight:bold; color:#ff0000; background:#ffff00;"');?>				</td>
 				<td align="center" valign="middle" class="content-rows">
@@ -141,8 +137,6 @@
 							<?php for ($j=0; $j<count($this->keyLangList); $j++):?>
 								<td align="left" valign="middle" nowrap="nowrap" class="content-rows"><a href="index.php?module=<?php echo PRO_CAT_MODULE_NAME;?>&amp;function=edit&amp;id=<?php echo $subRow->id;?>" title="Click for edit"><?php echo str_repeat('<font color="#FFFFFF">-------</font>', $level[$subRow->id]-1).'&raquo; '.$subRow->{$this->field_NAME[$j]};?></a></td>
 							<?php endfor;?>
-							<td align="center" valign="middle" class="content-rows">
-								<a href="index.php?module=<?php echo PRO_MODULE_NAME;?>&cat_id=<?php echo $subRow->id;?>" title="Go to product manager" style=" font-weight:bold; color:#FF6600;"><?php echo $this->__countSubProducts($subRow->id);?></a></td>
 							<td align="center" valign="middle" class="content-rows">
 								<?php $this->__auto_write_textbox_ordering($subRow->id, $subRow->ordering, 'size="2" maxlength="5" style="text-align:center;"');?>							</td>
 							<td align="center" valign="middle" class="content-rows">

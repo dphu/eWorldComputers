@@ -14,6 +14,6 @@
 
 <table width="100%" height="250" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="left" valign="middle" nowrap="nowrap" class="sadsa"><div align="center" class="home-style-text sdsdsads"><span class="my-sss sadsa sdsadsdsad">WEBSITE ADMINISTRATION</span> <span class="sdsadsd"><u><?php echo  SITE_NAME ;?></u></span></div></td>
+    <td align="left" valign="middle" nowrap="nowrap" class="sadsa"><div align="center" class="home-style-text sdsdsads"><span class="my-sss sadsa sdsadsdsad"><u><?php echo  SITE_NAME ;?></u> WEBSITE ADMINISTRATION</span></div></td>
   </tr>
 </table>

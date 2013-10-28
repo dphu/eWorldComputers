@@ -31,7 +31,8 @@ defined('IN_SYSTEM') or die('<hr>');
 	<td align="right" nowrap="nowrap" class="menudottedline" style="padding:0px;">	
 			<table cellpadding="0" cellspacing="0" border="0" id="toolbar">
 				<tr valign="middle" align="center">
-					<td><a class="toolbar" href="javascript:dosubmit('form');"><img src="../clients/images/save.png" align="middle" border="0" /><br />Update</a>
+					<td><a class="toolbar" href="javascript:dosubmit('form');"><img src="../clients/images/save.png" align="middle" border="0" /><br />
+					Update</a>
 					</td>
 					<td nowrap="nowrap">&nbsp;</td>
 					<td nowrap="nowrap">
@@ -78,14 +79,21 @@ defined('IN_SYSTEM') or die('<hr>');
 	<td width="14%" align="left" class="content-head"></td>
 	<td colspan="2" align="left"><input name="code" type="text" id="code" value="<?php IO::writeData('code');?>" size="34" style="height:18px;"/><?php ERROR::writeError('code', '*');?></td>
   </tr>
-  <?php if (USE_PRICE):?>
+  <?php // if (USE_PRICE):?>
   	
   	<tr>  
     <td width="7%" align="right" nowrap="nowrap" class="content-head" style="padding-left:20px;">Price : </td>
 	<td width="14%" align="left" class="content-head"></td>
 	<td colspan="2" align="left"><input name="price" type="text" id="price" value="<?php IO::writeData('price');?>" size="34" style="height:18px;"/><?php ERROR::writeError('price', '*');?></td>
+    
   </tr>
-  <?php endif;?>
+  <tr>  
+    <td width="7%" align="right" nowrap="nowrap" class="content-head" style="padding-left:20px;">Quantity : </td>
+	<td width="14%" align="left" class="content-head"></td>
+	<td colspan="2" align="left"><input name="quantity" type="text" id="price" value="<?php IO::writeData('quantity');?>" size="34" style="height:18px;"/><?php ERROR::writeError('quantity', '*');?></td>
+    
+  </tr>
+  <?php //endif;?>
   <tr>
     <td colspan="4" align="right" nowrap="nowrap" class="content-head" ><hr /></td>
     </tr>
@@ -93,7 +101,7 @@ defined('IN_SYSTEM') or die('<hr>');
 			    <td align="right" nowrap="nowrap" class="content-head" style="padding-left:20px;"><span class="asasgffgfdg">Rewrite URL Setting:</span></td>
 			    <td align="left" class="content-head">&nbsp;</td>
 			    <td align="left" style="padding-right:2px;">&nbsp;</td>
-			    <td align="left">&nbsp;</td>
+			    <td width="99%" align="left">&nbsp;</td>
     </tr>
   <tr>
   	  <td align="right" nowrap="nowrap" class="content-head" style="padding-left:20px;"><em>Default Value</em>: </td>
@@ -132,13 +140,6 @@ defined('IN_SYSTEM') or die('<hr>');
 	 <tr>
     <td colspan="4" align="right" nowrap="nowrap" class="content-head" ><hr /></td>
     </tr>
-  <tr>
-  <tr>
-			    <td align="right" nowrap="nowrap" class="content-head" style="padding-left:20px;"><span class="asasgffgfdg"><?php echo TITLE_EXT_FIELDS_VIEW;?></span></td>
-			    <td align="left" class="content-head">&nbsp;</td>
-			    <td align="left" style="padding-right:2px;">&nbsp;</td>
-			    <td align="left">&nbsp;</td>
-    </tr>
   <?php for ($fieldCount=0; $fieldCount<count($this->extFormView[LANG_KEY]); $fieldCount++):?>
 	  <?php for ($i=0; $i<count($this->keyLangList); $i++):?>
 	  	  <?php $fieldsList = isset($this->extFormView[$this->keyLangList[$i]]) ? $this->extFormView[$this->keyLangList[$i]] : $this->extFormView[LANG_KEY];?>
@@ -151,19 +152,7 @@ defined('IN_SYSTEM') or die('<hr>');
 				}	
 				$vName = "{$this->keyLangList[$i]}_v{$fieldCount}"; 
 			?>
-			  <tr>
-				<td align="right" nowrap="nowrap" class="content-head" style="padding-left:20px;"><font color="<?php echo $i?'#FFFFFF':'#000000';?>"><?php echo EXT_FIELDS_DESC.($fieldCount+1);?></font>:</td>
-				<td align="left" class="content-head" title="<?php echo $this->descriptionLangList[$i];?>">(<span class="ssssssssss"><?php echo strtoupper($this->keyLangList[$i]);?></span>)</td>
-				<td align="left" style="padding-right:2px;"><input name="<?php echo $fName;?>" type="text" value="<?php echo $fValue;?>" size="15" style="height:18px; border:#CCCCCC 1px solid; color:#bcbcbc;"/></td>
-				<td width="99%" align="left"><input name="<?php echo $vName;?>" type="text" value="<?php IO::writeData($vName);?>" size="34" style="height:18px;"/></td>
-			  </tr>
 	  <?php endfor;?>
-	  <tr>
-		<td height="3" style="font-size:1px;">&nbsp;</td>
-		<td height="3" style="font-size:1px;">&nbsp;</td>
-		<td style="font-size:1px;">&nbsp;</td>
-	    <td style="font-size:1px;">&nbsp;</td>
-	  </tr>
   <?php endfor;?>
     <tr>
       <td align="right" valign="top" nowrap="nowrap" class="content-head" style="padding-left:20px;">Set Image Mode: </td>

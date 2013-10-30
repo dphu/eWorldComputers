@@ -2,10 +2,6 @@
 @import url("layout.css");
 @import url("skeleton.css");
 
-.main {
-    float:left;
-}
-
 .twelve:not(.quick-access) {
     padding:5px;
 }
@@ -14,7 +10,7 @@
     text-align:center;
 }
 
-#map_canvas,.four:not(.logo):not(.sidebar), table, .category-nav, footer, .twelve:not(.quick-access):not(.cart) {
+.sixteen, #map_canvas,.four:not(.logo):not(.sidebar), table, .category-nav, footer, .twelve:not(.quick-access):not(.cart) {
     -moz-box-shadow: 0 0 10px 1px grey;
     -webkit-box-shadow: 0 0 10px 1px grey;
     box-shadow: 0 0 10px 1px grey;
@@ -715,7 +711,7 @@ address a {
 }
 
 /* form element visual styles */
-.contact_form input:not([type="submit"]), .contact_form textarea {
+ input[type="text"], input[type="tel"], input[type="email"], input[type="password"], textarea {
     border:1px solid #aaa;
     box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
     border-radius:2px;
@@ -725,7 +721,7 @@ address a {
     -o-transition: padding .25s;
     transition: padding .25s;
 }
-.contact_form input:focus:not([type="submit"]), .contact_form textarea:focus {
+ input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
     background: #fff;
     border:1px solid #555;
     box-shadow: 0 0 3px #aaa;
@@ -733,15 +729,15 @@ address a {
 }
 
 /* === HTML5 validation styles === */
-.contact_form input:required, .contact_form textarea:required {
+ input:required,  textarea:required {
     background: #fff url(http://localhost/eWorldComputers/assets/images/red_asterisk.png) no-repeat 98% center;
 }
-.contact_form input:required:valid, .contact_form textarea:required:valid {
+ input:required:valid,  textarea:required:valid {
     background: #fff url(http://localhost/eWorldComputers/assets/images/valid.png) no-repeat 98% center;
     box-shadow: 0 0 5px #5cd053;
     border-color: #28921f;
 }
-.contact_form input:focus:invalid, .contact_form textarea:focus:invalid {
+ input:focus:invalid,  textarea:focus:invalid {
     background: #fff url(http://localhost/eWorldComputers/assets/images/invalid.png) no-repeat 98% center;
     box-shadow: 0 0 5px #d45252;
     border-color: #b03535
@@ -764,9 +760,9 @@ address a {
     top:1px;
     left:-6px;
 }
-.contact_form input:focus + .form_hint {display: inline;}
-.contact_form input:required:valid + .form_hint {background: #28921f;}
-.contact_form input:required:valid + .form_hint::before {color:#28921f;}
+ input:focus + .form_hint {display: inline;}
+ input:required:valid + .form_hint {background: #28921f;}
+ input:required:valid + .form_hint::before {color:#28921f;}
 
 
 #map_canvas {
@@ -781,3 +777,38 @@ address a {
 .right {
     float:right;
 }
+
+
+
+
+.invoice tr:nth-child(even) {
+        background-color: #ddddee;
+    }
+    .invoice tr:nth-child(2) {
+        background-color: #bbbbff;
+    }
+    .invoice{
+        overflow:auto;
+    }
+    .invoice.container{
+        padding-left:50px;
+        padding-right:50px;
+        border:2px solid  black;
+        display:block;
+    }
+    .invoice table tr td ul li{
+        list-style-type: none;
+    }
+    .invoice.block{
+        margin:10px;
+        float:left;
+    }
+    .invoice.infoBlock ul li{
+        list-style-type: none;
+    }
+    
+    span.required {
+        color: red;
+        font-weight: bolder;
+        font-size: 150%;
+    }

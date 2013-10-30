@@ -10,8 +10,8 @@
             </ul>
         </div>
     </div>
-
-    <!--CSS3 Slider-->
+    <!--
+    <!--CSS3 Slider
         <div class="slide-container twelve columns">
             <div id="content-slider">
                 <div id="slider">
@@ -48,3 +48,4 @@
                 </div>
             </div>
         </div>
+    -->

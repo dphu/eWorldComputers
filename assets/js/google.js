@@ -1,4 +1,4 @@
-var eworld = new google.maps.LatLng(33.803311, -117.961346);
+var eworld = new google.maps.LatLng(33.801842, -117.960404);
 var marker;
 var map;
 var contentString = '<div id="content" height="50%">'+

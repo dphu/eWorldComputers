@@ -29,7 +29,7 @@
                 </ul>
             </li>
 
-            
+
             <li><span>Services</span>
                 <ul>
                     <?php foreach ($categories as $item): ?>
@@ -43,8 +43,8 @@
                     <?php endforeach; ?>
                 </ul>
             </li>
-            
-            
+
+
             <li><span>Services</span>
                 <ul>
                     <li>

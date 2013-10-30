@@ -168,21 +168,21 @@
                     result2 = lastN + " " + firstN;
                     result = firstN + " " + lastN;
                     if (search && (firstN.toLowerCase().substring(0, filter.length) === filter.toLowerCase()
-                            || lastN.toLowerCase().substring(0, filter.length) === filter.toLowerCase() || result.toLowerCase().substring(0, filter.length) === filter.toLowerCase() || result2.toLowerCase().substring(0, filter.length) === filter.toLowerCase())) {
+                        || lastN.toLowerCase().substring(0, filter.length) === filter.toLowerCase() || result.toLowerCase().substring(0, filter.length) === filter.toLowerCase() || result2.toLowerCase().substring(0, filter.length) === filter.toLowerCase())) {
                         display = true;
                     }
                     break;
                 case 'Email':
                     result = customer[index]['email'];
                     if (search && (result.toLowerCase().substring(0, filter.length) === filter.toLowerCase()
-                            )) {
+                )) {
                         display = true;
                     }
                     break;
                 case 'Phone':
                     result = customer[index]['phone'];
                     if (search && (result.toLowerCase().substring(0, filter.length) === filter.toLowerCase()
-                            )) {
+                )) {
                         display = true;
                     }
 
@@ -551,9 +551,9 @@
 
     });
     function loadDataToFields(index) {
-    console.log("index: "+index);
+        console.log("index: "+index);
    
-    console.log("reading property: "+service[index]['item']);
+        console.log("reading property: "+service[index]['item']);
         $('#id').val(service[index]['id']);
         $('#item').val(service[index]['item']);
         $('#sertype').val(service[index]['sertype']);

@@ -182,7 +182,7 @@ class Main extends CI_Controller {
         $config['last_link'] = 'Last&gt&gt';
         $config['next_link'] = 'Next&gt';
         $config['prev_link'] = '&ltPrevious';
-        $config['per_page'] = 3;
+        $config['per_page'] = 6;
         $config['use_page_numbers'] = true;
         $this->load->model('getdb');
         $data['product'] = $this->getdb->product($id, $config['per_page'], $this->uri->segment(4) ? ($this->uri->segment(4) - 1) * $config['per_page'] : 0);
@@ -226,7 +226,7 @@ class Main extends CI_Controller {
         $this->load->view('copyright');
     }
 
-    public function getcategory($productid = null) {
+    private function getcategory($productid = null) {
         $this->load->model('getdb');
         $category = $this->getdb->getcategory($productid);
         return $category;
@@ -243,13 +243,13 @@ class Main extends CI_Controller {
         }
     }
 
-    public function global_navigation() {
+    private function global_navigation() {
         $this->load->model('getdb');
         $data['results'] = $this->getdb->getBlock('___ADMIN_EDITOR___TOPMENU');
         $this->load->view('global-navigation', $data);
     }
 
-    public function categories_navigation() {
+    private function categories_navigation() {
         $this->load->model('getdb');
         $data['categories'] = $this->getdb->getCategories();
         $this->load->view('categories-navigation', $data);
@@ -341,7 +341,7 @@ class Main extends CI_Controller {
     }
 
     //make sure email doesn't exist in database
-    public function verifyAvailable($value, $table) {
+    private function verifyAvailable($value, $table) {
         $this->load->model('getdb');
         if (!($this->getdb->doesEmailExist($table))) {
             return true;
@@ -368,7 +368,14 @@ class Main extends CI_Controller {
         $this->login();
         $this->load->view('global-search');
         $this->global_navigation();
-        !empty($_SESSION['userID']) ? $this->load->view('edit-profile') : $this->load->view('customer-login');
+        if(!empty($_SESSION['userID']))
+        {
+            $this->load->view('edit-profile');
+            $this->load->view('aside-info');
+            $this->load->view('copyright');
+        }
+        else
+            redirect('main/my-account');
     }
 
 //validate the edit profile form
@@ -393,7 +400,7 @@ class Main extends CI_Controller {
     }
 
     //add/modify user info
-    public function add_customer() {
+    private function add_customer() {
         $this->load->model('getdb');
 
         $insertFields = "id, fname, lname, address, city, state, zipcode, phone";
@@ -436,7 +443,7 @@ class Main extends CI_Controller {
     }
 
     //function for calling function in model to verify login
-    public function validateAdminCredentials() {
+    private function validateAdminCredentials() {
         $this->load->model('getdb');
         if ($this->getdb->checkAdminLogin()) {
             return true;
@@ -452,30 +459,9 @@ class Main extends CI_Controller {
         !empty($_SESSION['admin_id']) ? $this->load->view('administration-dashboard') : redirect('main/admin');
     }
 
-    public function temp() {
-        $this->load->model('getdb');
-        $data['categories'] = $this->getdb->getCategories();
-        $this->load->view('edit', $data);
-    }
-
-    public function modify($value) {
-        $this->load->model('getdb');
-        if ($this->input->post('name') == '')
-            $this->getdb->delete(mysql_real_escape_string($this->input->post('name')));
-        else
-            $this->getdb->update(mysql_real_escape_string($this->input->post('name'), $value));
-    }
-
-    public function insert() {
-        $this->load->model('getdb');
-        if ($this->input->post('name') != '')
-            $this->getdb->insert(mysql_real_escape_string($this->input->post('name')));
-    }
-
     public function addToCart() {
         $this->load->model('getdb');
         $product = $this->getdb->productbyid($_POST['id']);
-
         if (empty($_POST['rowid'])) {
             $data = array(
                 'id' => $_POST['id'],
@@ -488,7 +474,7 @@ class Main extends CI_Controller {
         } else {
             $data = array(
                 'rowid' => $_POST['rowid'],
-                'qty' => $_POST['qty'],
+                'qty' => $this->cart->contents()[$_POST['rowid']]['qty'] + $_POST['qty'],
             );
             $_SESSION['product_name'] = $this->cart->update($data) ? $product['name_en'] . " was updated in your shopping cart." : '';
         }
@@ -624,44 +610,73 @@ class Main extends CI_Controller {
         $this->load->view('copyright');
     }
 
-    public function invoice() {
-        $this->createInvoice();
-        $_SESSION['current_view'] = 'Invoice';
-        $this->load->view('header');
-        $this->login();
-        $this->load->view('global-search');
-        $this->global_navigation();
-        $this->categories_navigation();
-        $this->load->view('newsletter');
-        $this->load->view('social-links');
-        $this->load->model('getdb');
+    public function checkout() {
         if (!empty($_SESSION['userID'])) {
-            $data['invoices'] = $this->getdb->getInvoices($_SESSION['userID']);
-        } else {
-            $data['invoices'] = "";
+            $this->load->model('getdb');
+            $data['info'] = $this->getdb->getUserData($_SESSION['userID']);
+            $_SESSION['current_view'] = 'Checkout';
+            $this->load->view('header');
+            $this->login();
+            $this->load->view('global-search');
+            $this->global_navigation();
+            $this->load->view('checkout', $data);
+            $this->load->view('aside-info');
+            $this->load->view('copyright');
+            //$this->invoice_focus($this->createInvoice());
+        }else
+            redirect('main/my-account');
+    }
+
+    public function invoice() {
+        if (!empty($_SESSION['userID'])) {
+            $_SESSION['current_view'] = 'Invoice';
+            $this->load->view('header');
+            $this->login();
+            $this->load->view('global-search');
+            $this->global_navigation();
+            $this->load->model('getdb');
+            if (!empty($_SESSION['userID'])) {
+                $data['invoices'] = $this->getdb->getInvoices($_SESSION['userID']);
+            } else {
+                $data['invoices'] = "";
+            }
+            $this->load->view('invoice', $data);
+            $this->load->view('copyright');
         }
-        $this->load->view('invoice', $data);
-        $this->load->view('footer');
-        $this->load->view('copyright');
+        else
+            redirect('main/my-account');
     }
 
     public function invoice_focus($id) {
         $this->load->model('getdb');
         $data['invoice'] = $this->getdb->getInvoiceById($id);
         $data['customer'] = $this->getdb->getUserData($_SESSION['userID']);
+
+        $this->load->view('header');
+        $this->login();
+        $this->load->view('global-search');
+        $this->global_navigation();
         $this->load->view('invoice-focus', $data);
+        $this->load->view('copyright');
     }
 
-    public function createInvoice() {
+    private function createInvoice() {
         $this->load->model('getdb');
         $id = $this->getdb->insertValues('tbl_invoice', "customer_id, date, time", "$_SESSION[userID], CURDATE(), CURTIME()");
         foreach ($this->cart->contents() as $items) {
             $this->getdb->insertValues('tbl_product_list', "customer_id, invoice_id, product_id, qty", "$_SESSION[userID], $id, $items[id], $items[qty]");
         }
         $this->destroy();
+        return $id;
     }
 
+    // destroy the cart
     private function destroy() {
         $this->cart->destroy();
+        $_SESSION['product_name'] = '';
+    }
+    
+    public function confirmation() {
+        $this->invoice_focus($this->createInvoice());
     }
 }

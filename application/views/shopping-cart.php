@@ -61,10 +61,10 @@ if (empty($var)):
                 </table>
             </form>
             <?php $_SESSION['page'] = base_url() . 'main/shopping-cart' ?>
-                
-        <form method="post" action="<?php echo base_url() . 'main/invoice'; ?>">
-            <input type="submit" value="Proceed to Checkout" />
-        </form>
+
+            <form method="post" action="<?php echo base_url() . 'main/checkout'; ?>">
+                <input type="submit" value="Proceed to Checkout" />
+            </form>
         <?php endif; ?>
     </section>
 

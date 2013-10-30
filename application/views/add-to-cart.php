@@ -13,7 +13,7 @@
         <form method="post" action="<?php echo base_url(); ?>main/addToCart/">
             <ul>
                 <li>
-                    <label>Number of this item in Cart:<input type="number" min="0" max="<?php echo $product['quantity'] ?>" name="qty" id="qty" value="<?php echo empty($rowID) ? 0 : $qty ?>" maxlength="3" size="3" /></label>
+                    <label>Add to Cart:<input type="number" min="0" max="<?php echo $product['quantity'] ?>" name="qty" id="qty" value="0" maxlength="3" size="3" /></label>
                 </li>
                 <li><input type="hidden" name="id" value="<?php echo $product['id'] ?>"/></li>
                 <?php if (!empty($rowID)): ?>

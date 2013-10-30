@@ -50,7 +50,6 @@ class GetDB extends CI_Model {
     }
 
     public function insertValues($table, $fields, $values) {
-        $_SESSION['test'] = $values;
         $query = mysql_query("INSERT INTO $table ($fields) VALUES ($values)");
         return mysql_insert_id();
     }
@@ -160,4 +159,5 @@ class GetDB extends CI_Model {
         $query = $this->db->query("SELECT * FROM tbl_invoice i INNER JOIN tbl_product_list l ON i.invoice_id = l.invoice_id INNER JOIN tbl_products p ON l.product_id = p.id WHERE i.invoice_id = $id");
         return $query->result_array();
     }
+
 }

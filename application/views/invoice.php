@@ -1,5 +1,5 @@
 <section class="main">
-    <section class="twelve columns">
+    <section class="sixteen columns" style="border: 1px solid">
         <?php if (empty($invoices)): ?>
             <article class="empty">
                 <p>No Invoices Available</p>

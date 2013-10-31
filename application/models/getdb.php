@@ -156,8 +156,16 @@ class GetDB extends CI_Model {
     }
 
     public function getInvoiceById($id) {
-        $query = $this->db->query("SELECT * FROM tbl_invoice i INNER JOIN tbl_product_list l ON i.invoice_id = l.invoice_id INNER JOIN tbl_products p ON l.product_id = p.id WHERE i.invoice_id = $id");
+        $query = $this->db->query("SELECT DISTINCT * FROM tbl_invoice i INNER JOIN tbl_product_list l ON i.invoice_id = l.invoice_id INNER JOIN tbl_products p ON l.product_id = p.id WHERE i.invoice_id = $id");
         return $query->result_array();
     }
 
+    public function updateProduct($qty, $id) {
+        $this->db->query("UPDATE tbl_products SET quantity = (quantity-$qty) WHERE id = $id");
+    }
+    
+    public function getStates() {
+        $query = $this->db->query("SELECT name_en, code FROM tbl_state");
+        return $query->result_array();
+    }
 }

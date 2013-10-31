@@ -341,7 +341,7 @@ class Main extends CI_Controller {
     }
 
     //make sure email doesn't exist in database
-    private function verifyAvailable($value, $table) {
+    public function verifyAvailable($value, $table) {
         $this->load->model('getdb');
         if (!($this->getdb->doesEmailExist($table))) {
             return true;
@@ -371,7 +371,7 @@ class Main extends CI_Controller {
         if(!empty($_SESSION['userID']))
         {
             $this->load->view('edit-profile');
-            $this->load->view('aside-info');
+            $this->load->view('aside-edit');
             $this->load->view('copyright');
         }
         else
@@ -613,14 +613,14 @@ class Main extends CI_Controller {
     public function checkout() {
         if (!empty($_SESSION['userID'])) {
             $this->load->model('getdb');
-            $data['info'] = $this->getdb->getUserData($_SESSION['userID']);
+            $data['states'] = $this->getdb->getStates();
             $_SESSION['current_view'] = 'Checkout';
             $this->load->view('header');
             $this->login();
             $this->load->view('global-search');
             $this->global_navigation();
             $this->load->view('checkout', $data);
-            $this->load->view('aside-info');
+            $this->load->view('aside-checkout');
             $this->load->view('copyright');
             //$this->invoice_focus($this->createInvoice());
         }else
@@ -635,11 +635,7 @@ class Main extends CI_Controller {
             $this->load->view('global-search');
             $this->global_navigation();
             $this->load->model('getdb');
-            if (!empty($_SESSION['userID'])) {
-                $data['invoices'] = $this->getdb->getInvoices($_SESSION['userID']);
-            } else {
-                $data['invoices'] = "";
-            }
+            $data['invoices'] = $this->getdb->getInvoices($_SESSION['userID']);
             $this->load->view('invoice', $data);
             $this->load->view('copyright');
         }
@@ -647,7 +643,9 @@ class Main extends CI_Controller {
             redirect('main/my-account');
     }
 
-    public function invoice_focus($id) {
+    private function invoice_focus($id) {
+        if(empty($_SESSION['userID']))
+            redirect ('main/my-account');
         $this->load->model('getdb');
         $data['invoice'] = $this->getdb->getInvoiceById($id);
         $data['customer'] = $this->getdb->getUserData($_SESSION['userID']);
@@ -665,6 +663,7 @@ class Main extends CI_Controller {
         $id = $this->getdb->insertValues('tbl_invoice', "customer_id, date, time", "$_SESSION[userID], CURDATE(), CURTIME()");
         foreach ($this->cart->contents() as $items) {
             $this->getdb->insertValues('tbl_product_list', "customer_id, invoice_id, product_id, qty", "$_SESSION[userID], $id, $items[id], $items[qty]");
+            $this->getdb->updateProduct($items['qty'], $items['id']);
         }
         $this->destroy();
         return $id;

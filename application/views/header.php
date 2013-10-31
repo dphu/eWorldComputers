@@ -17,8 +17,8 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.flexslider-min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.zoom-min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.zoom.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/google.js">
-        </script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/google.js"></script>
+        <script src="<?php echo base_url(); ?>/assets/js/jquery.maskedinput.js" type="text/javascript"></script>
 
     </head>
 

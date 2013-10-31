@@ -6,7 +6,7 @@
         <table class="invoice">
             <tr>
                 <td colspan="2" align="left">
-                    <?php echo!empty($invoice) ? $invoice[0]['date'] . " " . $invoice[0]['time'] : "" ?>
+                    <?php echo!empty($invoice) ? date('l, m/d/Y', strtotime($invoice[0]['date'])) . ', ' . date('g:i A', strtotime($invoice[0]['time'])) : "" ?>
                 </td>
                 <td colspan="2" align="right">
                     <?php echo!empty($invoice) ? "Invoice # " . $invoice[0]['invoice_id'] : "" ?>
@@ -14,78 +14,79 @@
             </tr>
             <tr>
                 <td>
-                    <ul>
-                        <li>E-World Computer</li>
-                        <li>9896 Katella Ave Suite A</li>
-                        <li>Anaheim, CA, 92804</li>
-                        <li>(714)539-9199</li>
-                    </ul>
+                    E-World Computer<br />
+                    9896 Katella Ave Suite A<br />
+                    Anaheim, CA, 92804<br />
+                    (714) 539 - 9199<br />
                 </td>
-                <td colspan="3">
-                    <ul>
-                        <li><?php echo $customer->fname . ", " . $customer->lname; ?></li>
-                        <li><?php echo $customer->address; ?></li>
-                        <li><?php echo $customer->city . ", " . $customer->state . ", " . $customer->zipcode; ?></li>
-                        <li><?php echo $customer->phone; ?></li>
-                    </ul>
+                <td colspan="3"><?php echo $customer->lname . ", " . $customer->fname; ?><br />
+                    <?php echo $customer->address; ?><br />
+                    <?php echo $customer->city . ", " . $customer->state . ", " . $customer->zipcode; ?><br />
+                    <?php
+                    if (preg_match('/(\d{3})(\d{3})(\d{4})$/', $customer->phone, $matches))
+                        echo '(' . $matches[1] . ') ' . $matches[2] . ' - ' . $matches[3];
+                    ?>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Item
+                    <strong>Item</strong>
                 </td>
-                <td>
-                    Quantity
+                <td align="right">
+                    <strong>Quantity</strong>
                 </td>
-                <td>
-                    Price
+                <td align="right">
+                    <strong>Price</strong>
                 </td>
-                <td>
-                    Total
+                <td align="right">
+                    <strong>Total</strong>
                 </td>
             </tr>
             <?php $total = 0 ?>
-            <?php foreach ($invoice as $i): ?>
+<?php foreach ($invoice as $i): ?>
                 <tr>
                     <td>
-                        <?php echo $i['name_en']; ?>
+    <?php echo $i['name_en']; ?>
                     </td>
-                    <td>
-                        <?php echo $i['qty']; ?>
+                    <td align="right">
+    <?php echo $i['qty']; ?>
                     </td>
-                    <td>
-                        <?php echo number_format($i['price'], 2); ?>
+                    <td align="right">
+    <?php echo '$' . number_format($i['price'], 2); ?>
                     </td>
-                    <td>
+                    <td align="right">
                         <?php
-                        echo number_format($i['price'] * $i['qty'], 2);
-                        $total+=$i['price'] * $i['qty'];
+                        echo '$' . number_format($i['price'] * $i['qty'], 2);
+                        $total += $i['price'] * $i['qty'];
                         ?>
                     </td>
                 </tr>
 <?php endforeach; ?>
             <tr>
+                <td colspan="4"></td>
+            </tr>
+            <tr>
                 <td colspan = "3" align="right">
-                    Subtotal:
+                    <strong>Subtotal:</strong>
                 </td>
-                <td>
-<?php echo number_format($total, 2); ?>
+                <td align="right">
+<?php echo '$' . number_format($total, 2); ?>
                 </td>
             </tr>
             <tr>
                 <td colspan = "3" align="right">
-                    Tax:
+                    <strong>Tax:</strong>
                 </td>
-                <td>
+                <td align="right">
 <?php echo number_format(7.75, 2) . "%"; ?>
                 </td>
             </tr>
             <tr>
                 <td colspan = "3" align="right">
-                    Total:
+                    <strong>Total:</strong>
                 </td>
-                <td>
-<?php echo number_format(($total * 0.0775) + $total, 2); ?>
+                <td align="right">
+<?php echo '$' . number_format(($total * 0.0775) + $total, 2); ?>
                 </td>
             </tr>
         </table>

@@ -2,7 +2,20 @@
 @import url("layout.css");
 @import url("skeleton.css");
 
-.twelve:not(.quick-access) {
+td[align="right"] {
+    text-align: right;
+}
+
+ul.nav.twelve.columns {
+    float:right;
+    margin-bottom: -30px;
+}
+
+.main {
+    float:left;
+}
+
+.twelve:not(.quick-access):not(.nav) {
     padding:5px;
 }
 
@@ -10,7 +23,7 @@
     text-align:center;
 }
 
-.sixteen, #map_canvas,.four:not(.logo):not(.sidebar), table, .category-nav, footer, .twelve:not(.quick-access):not(.cart) {
+.sixteen, #map_canvas,.four:not(.logo):not(.sidebar), table, .category-nav, footer, .twelve:not(.quick-access):not(.cart):not(.nav) {
     -moz-box-shadow: 0 0 10px 1px grey;
     -webkit-box-shadow: 0 0 10px 1px grey;
     box-shadow: 0 0 10px 1px grey;

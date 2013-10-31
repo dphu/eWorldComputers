@@ -15,5 +15,4 @@
             </div>
         </div>
     </form>
-    <?php echo empty($_SESSION['test']) ? '' : '<p>' . $_SESSION['test'] . '</p>'; ?>
 </div>

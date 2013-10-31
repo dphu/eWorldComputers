@@ -10,7 +10,7 @@
                 </tr>
                 <tr>
                     <td><label for="company">Company<br /><input type="text" name="company" /></label></td>
-                    <td><label for="email">Email Address <span class="required">*</span><br /><input type="email" name="email" required="required" value="<?php echo $userInfo->email; ?>"/></label></td>
+                    <td><label for="email">Email Address <span class="required">*</span><br /><input type="email" name="email" required="required" value="<?php echo $userInfo->email; ?>" disabled /></label></td>
                 </tr>
                 <tr>
                     <td colspan="2"><label for="address">Address <span class="required">*</span><br /><input type="text" name="address" required="required" value="<?php echo $userInfo->address; ?>"/></label></td>
@@ -27,8 +27,8 @@
                     <td><label for="country">Country <span class="required">*</span><br /><select name="country"><option value="USA">United States</option></select></label></td>
                 </tr>
                 <tr>
-                    <td><label for="phone">Telephone <span class="required">*</span><br /><input type="tel" name="telephone" required="required" value="<?php echo $userInfo->phone; ?>"/></label></td>
-                    <td><label for="fax">Fax<br /><input type="tel" name="fax" /></label></td>
+                    <td><label for="phone">Telephone <span class="required">*</span><br /><input class="phone" type="tel" name="telephone" required="required" value="<?php echo $userInfo->phone; ?>"/></label></td>
+                    <td><label for="fax">Fax<br /><input class="phone" type="tel" name="fax" /></label></td>
                 </tr>
             </table>
             <!--

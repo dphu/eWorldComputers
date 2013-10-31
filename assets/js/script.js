@@ -14,4 +14,5 @@ $(document).ready(function() {
     $(".tin").mask("99-9999999");
     $(".ssn").mask("999-99-9999");
     $(".zip").mask("99999-9999");
+    $( ".accordion" ).accordion();
 });

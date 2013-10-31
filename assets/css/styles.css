@@ -2,6 +2,10 @@
 @import url("layout.css");
 @import url("skeleton.css");
 
+.ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom.ui-accordion-content-active {
+    background: #f7f7f7;
+}
+
 td[align="right"] {
     text-align: right;
 }
@@ -69,6 +73,18 @@ caption {
 
 body {
     background:  #4fa2e4;
+}
+
+.accordion>h5, .accordion>h6 {
+    background: #93BEE0;
+}
+
+aside>h5 {
+    font-size: 100%;
+    font-weight: 600;
+text-align: center;
+background: #93BEE0;
+color: white;
 }
 
 .wrapper {

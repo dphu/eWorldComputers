@@ -4,6 +4,7 @@
 
 .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom.ui-accordion-content-active {
     background: #f7f7f7;
+    font-size: 70%;
 }
 
 td[align="right"] {
@@ -718,11 +719,16 @@ footer .column > ul > li > ul a:hover {
     text-decoration: underline;
 }
 
-address#bottom {
+address.bottom {
     font-size: 80%;
     clear:both;
     color: #00772B;
     text-align: center;
+}
+
+li.bottom {
+    font-size: 80%;
+    color: #00772B;
 }
 
 address a {

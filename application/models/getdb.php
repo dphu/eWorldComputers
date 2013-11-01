@@ -95,7 +95,7 @@ class GetDB extends CI_Model {
     }
 
     public function productById($id) {
-        $query = $this->db->query("SELECT cat_id, id, name_en, price, image, desc_en, quantity, pagetitle, metakeyword, metadescription FROM tbl_products WHERE id = $id");
+        $query = $this->db->query("SELECT cat_id, id, name_en, code, price, image, desc_en, quantity, pagetitle, metakeyword, metadescription FROM tbl_products WHERE id = $id");
         return $query->row_array();
     }
 

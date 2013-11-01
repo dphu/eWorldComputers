@@ -370,8 +370,9 @@ class Main extends CI_Controller {
         $this->global_navigation();
         if(!empty($_SESSION['userID']))
         {
-            $this->load->view('edit-profile');
             $this->load->view('aside-edit');
+            $this->load->view('edit-profile');
+            
             $this->load->view('copyright');
         }
         else
@@ -619,8 +620,8 @@ class Main extends CI_Controller {
             $this->login();
             $this->load->view('global-search');
             $this->global_navigation();
-            $this->load->view('checkout', $data);
             $this->load->view('aside-checkout');
+            $this->load->view('checkout', $data);
             $this->load->view('copyright');
             //$this->invoice_focus($this->createInvoice());
         }else

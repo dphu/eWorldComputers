@@ -1,5 +1,5 @@
 <section class="main">
-    <div class="twelve columns">
+    <div class="nowrap" style="overflow:hidden">
         <h3> E-World Computers Location</h3>
         <div id="map_canvas" class="eight columns"></div>
         <div class="four columns">

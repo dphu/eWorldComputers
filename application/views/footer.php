@@ -1,6 +1,5 @@
-<footer class="twelve columns">
-    <div class="column">
-        <ul>
+<footer class="nowrap">
+        <ul class="column">
             <li>OUR COMPANY
                 <ul>
                     <li><a href="<?php echo base_url(); ?>main/about-us">OUR STORY</a></li>
@@ -11,9 +10,7 @@
                 </ul>
             </li>
         </ul>
-    </div>
-    <div class="column">
-        <ul>
+        <ul class="column">
             <li>CUSTOMER SERVICE
                 <ul>
                     <li><a href="<?php echo base_url(); ?>main/faq">FAQ</a></li>
@@ -27,9 +24,7 @@
                 </ul>
             </li>
         </ul>
-    </div>
-    <div class="column">
-        <ul>
+        <ul class="column">
             <li>PRODUCT INFORMATION
                 <ul>
                     <li><a href="<?php echo base_url(); ?>main/quality-construction">QUALITY &amp; CONSTRUCTION</a></li>
@@ -41,6 +36,5 @@
                 </ul>
             </li>
         </ul>
-    </div>
 </footer>
 </section>

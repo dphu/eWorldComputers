@@ -1,5 +1,5 @@
 <section class="main">
-    <article class="product-focus twelve columns">
+    <article class="product-focus nowrap">
         <p class="breadcrumbs" >
             <a href="<?php echo base_url(); ?>">Home</a> / <a href="<?php echo $_SESSION['page']; ?>"><?php echo $_SESSION['current_view']; ?></a> / <strong><?php echo $product['name_en']; ?></strong>
         </p>

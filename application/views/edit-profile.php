@@ -1,6 +1,6 @@
 
 <section class="main">
-    <section class ="twelve columns">
+    <section class ="nowrap">
         <h3>Edit Profile</h3>
         <form class="contact_form" method="post" action ="<?php echo base_url(); ?>main/validateEditProfile">
             <table>

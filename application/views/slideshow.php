@@ -1,5 +1,5 @@
 <section class="main">
-    <div class="slide-container twelve columns">
+    <div class="slide-container">
         <div class="flexslider">
             <ul class="slides">
                 <li><img src="<?php echo base_url(); ?>assets/images/13210056_m-copy.jpg" alt="" /></li>
@@ -12,7 +12,7 @@
     </div>
     <!--
     <!--CSS3 Slider
-        <div class="slide-container twelve columns">
+        <div class="slide-container nowrap">
             <div id="content-slider">
                 <div id="slider">
                     <div id="mask">

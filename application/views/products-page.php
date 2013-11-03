@@ -1,5 +1,5 @@
 <section class="main">
-    <section class="twelve columns">
+    <section class="nowrap">
         <p class="breadcrumbs" ><a href="<?php echo base_url(); ?>">Home</a> / <strong><?php echo ucwords(urldecode($_SESSION['current_view'])); ?></strong></p>
 
         <?php if (empty($product)): ?>

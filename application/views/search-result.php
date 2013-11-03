@@ -1,5 +1,5 @@
 <section class="main">
-    <section class="twelve columns">
+    <section class="nowrap">
         <p class="breadcrumbs" ><a href="<?php echo base_url(); ?>">Home</a> / <strong><?php echo urldecode($_SESSION['current_view']); ?></strong></p>
         <h3><?php echo urldecode($_SESSION['current_view']); ?></h3>
 

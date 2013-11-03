@@ -1,5 +1,5 @@
 <section class="main">
-    <section class="twelve columns">
+    <section class="nowrap">
         <h3>Shopping Cart <?php
 $var = $this->cart->contents();
 if (empty($var)):

@@ -2,6 +2,18 @@
 @import url("layout.css");
 @import url("skeleton.css");
 
+.slide-container, div>h3+p {
+   text-align: center;
+}
+
+.slide-container {
+    margin-bottom: -20px;
+}
+
+div>h3+p img {
+    width: 100%;
+}
+
 .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom.ui-accordion-content-active {
     background: #f7f7f7;
     font-size: 70%;
@@ -20,15 +32,20 @@ ul.nav.twelve.columns {
     float:left;
 }
 
-.twelve:not(.quick-access):not(.nav) {
+.nowrap, .twelve:not(.quick-access):not(.nav) {
     padding:5px;
+    overflow:hidden;
 }
 
 .social, .block.block-subscribe {
     text-align:center;
 }
 
-.sixteen, #map_canvas,.four:not(.logo):not(.sidebar), table, .category-nav, footer, .twelve:not(.quick-access):not(.cart):not(.nav) {
+.nowrap {
+    clear:both;
+}
+
+footer, .nowrap, .sixteen, #map_canvas,.four:not(.logo):not(.sidebar), table, .category-nav {
     -moz-box-shadow: 0 0 10px 1px grey;
     -webkit-box-shadow: 0 0 10px 1px grey;
     box-shadow: 0 0 10px 1px grey;
@@ -83,9 +100,9 @@ body {
 aside>h5 {
     font-size: 100%;
     font-weight: 600;
-text-align: center;
-background: #93BEE0;
-color: white;
+    text-align: center;
+    background: #93BEE0;
+    color: white;
 }
 
 .wrapper {
@@ -98,23 +115,10 @@ color: white;
 /*************************************/
 /*Header                             */
 /*************************************/
-.logo h1 {
-    margin-top: 10px;
+.logo {
+    margin-top: 5px;
     margin-left: -7px;
-    margin-bottom: -20px;
-
-}
-
-.logo h2 {
-    margin-top:2px;
-    margin-left: 10px;
-    font-size: 13px;
-    font-style: italic;
-    color: #37B5E7;
-}
-
-.logo h2 span {
-    font-size: 25px;
+    margin-bottom: -31px;
 }
 
 /*************************************/
@@ -695,6 +699,7 @@ div.actions {
 /*Footer							 */
 /*************************************/
 footer {
+    overflow: hidden;
     margin-top: 20px;
 }
 
@@ -703,19 +708,19 @@ footer .column {
     padding: 20px;
 }
 
-footer .column > ul {
+footer .column {
     color: #006098;
     font-weight: bold;
 }
 
-footer .column > ul > li > ul a {
+footer .column > li > ul a {
     text-decoration: none;
     font-size: 80%;
     margin-left: -2.8em;
     color: #4FA2E4;
 }
 
-footer .column > ul > li > ul a:hover {
+footer .column > li > ul a:hover {
     text-decoration: underline;
 }
 
@@ -746,7 +751,7 @@ address a {
 }
 
 /* form element visual styles */
- input[type="text"], input[type="tel"], input[type="email"], input[type="password"], textarea {
+input[type="text"], input[type="tel"], input[type="email"], input[type="password"], textarea {
     border:1px solid #aaa;
     box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
     border-radius:2px;
@@ -756,7 +761,7 @@ address a {
     -o-transition: padding .25s;
     transition: padding .25s;
 }
- input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
     background: #fff;
     border:1px solid #555;
     box-shadow: 0 0 3px #aaa;
@@ -764,15 +769,15 @@ address a {
 }
 
 /* === HTML5 validation styles === */
- input:required,  textarea:required {
+input:required,  textarea:required {
     background: #fff url(http://localhost/eWorldComputers/assets/images/red_asterisk.png) no-repeat 98% center;
 }
- input:required:valid,  textarea:required:valid {
+input:required:valid,  textarea:required:valid {
     background: #fff url(http://localhost/eWorldComputers/assets/images/valid.png) no-repeat 98% center;
     box-shadow: 0 0 5px #5cd053;
     border-color: #28921f;
 }
- input:focus:invalid,  textarea:focus:invalid {
+input:focus:invalid,  textarea:focus:invalid {
     background: #fff url(http://localhost/eWorldComputers/assets/images/invalid.png) no-repeat 98% center;
     box-shadow: 0 0 5px #d45252;
     border-color: #b03535
@@ -795,9 +800,9 @@ address a {
     top:1px;
     left:-6px;
 }
- input:focus + .form_hint {display: inline;}
- input:required:valid + .form_hint {background: #28921f;}
- input:required:valid + .form_hint::before {color:#28921f;}
+input:focus + .form_hint {display: inline;}
+input:required:valid + .form_hint {background: #28921f;}
+input:required:valid + .form_hint::before {color:#28921f;}
 
 
 #map_canvas {
@@ -817,33 +822,33 @@ address a {
 
 
 .invoice tr:nth-child(even) {
-        background-color: #ddddee;
-    }
-    .invoice tr:nth-child(2) {
-        background-color: #bbbbff;
-    }
-    .invoice{
-        overflow:auto;
-    }
-    .invoice.container{
-        padding-left:50px;
-        padding-right:50px;
-        border:2px solid  black;
-        display:block;
-    }
-    .invoice table tr td ul li{
-        list-style-type: none;
-    }
-    .invoice.block{
-        margin:10px;
-        float:left;
-    }
-    .invoice.infoBlock ul li{
-        list-style-type: none;
-    }
-    
-    span.required {
-        color: red;
-        font-weight: bolder;
-        font-size: 150%;
-    }
+    background-color: #ddddee;
+}
+.invoice tr:nth-child(2) {
+    background-color: #bbbbff;
+}
+.invoice{
+    overflow:auto;
+}
+.invoice.container{
+    padding-left:50px;
+    padding-right:50px;
+    border:2px solid  black;
+    display:block;
+}
+.invoice table tr td ul li{
+    list-style-type: none;
+}
+.invoice.block{
+    margin:10px;
+    float:left;
+}
+.invoice.infoBlock ul li{
+    list-style-type: none;
+}
+
+span.required {
+    color: red;
+    font-weight: bolder;
+    font-size: 150%;
+}

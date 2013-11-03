@@ -1,5 +1,5 @@
 <section class="main">
-    <section class="twelve columns">
+    <section class="nowrap">
         <h3>Checkout</h3>
         <section class="accordion">
             <h5>Billing Information</h5>
